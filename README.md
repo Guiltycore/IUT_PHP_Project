@@ -7,11 +7,13 @@ Site de e-Commerce
 ***
 
 *A faire avant le Semaine du 6 Novembre 2017*:
-***
 
-+Choisir un produit. (BONUS: Avec extension?)
-+Implémenter les modèles, contrôleurs, et les vues.
-+Créer les tables.
+
+-Choisir un produit. (BONUS: Avec extension?)
+
+-Implémenter les modèles, contrôleurs, et les vues.
+
+-Créer les tables.
 
 ***
 *Critère de [notation](https://docs.google.com/spreadsheets/d/1CSC5-27rFoJRAlEbQCamBMf3vY6FASgEtcxIKipgwxk/)*
