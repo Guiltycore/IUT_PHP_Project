@@ -13,7 +13,7 @@
 		protected static $object;
 		public static function readAll ()
 		{
-			$tab_v = ModelProduit ::selectAll ();     //appel au modèle pour gerer la BD
+			$tab_p = ModelProduit ::selectAll ();     //appel au modèle pour gerer la BD
 			$object = 'produit';
 			$view = 'list';
 			$pagetitle = 'Liste des produits';
@@ -21,7 +21,7 @@
 		}
 		public static function read ( $login )
 		{
-			$v = ModelProduit ::select ( $login );
+			$p = ModelProduit ::select ( $login );
 			$object = 'produit';
 			$view = 'detail';
 			$pagetitle = 'Détail du produit.';
@@ -30,7 +30,7 @@
 		public static function delete ( $login )
 		{
 			ModelProduit ::delete ( $login );
-			$tab_v = ModelProduit ::selectAll ();
+			$tab_p = ModelProduit ::selectAll ();
 			$object = 'produit';
 			$view = 'delete';
 			$pagetitle = 'Produit supprimé';
@@ -49,13 +49,13 @@
 			$object = 'produit';
 			$view = 'updated';
 			$pagetitle = 'Liste des produits';
-			$tab_v = ModelProduit ::selectAll ();
+			$tab_p = ModelProduit ::selectAll ();
 			require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
 		}
 		public static function created ( $data )
 		{
 			ModelProduit ::save ( $data );
-			$tab_v = ModelProduit ::selectAll ();
+			$tab_p = ModelProduit ::selectAll ();
 			$object = 'produit';
 			$view = 'created';
 			$pagetitle = 'Liste des produits';
