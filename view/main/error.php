@@ -6,4 +6,6 @@
 	 * Time: 11:14
 	 */
 	echo "Error :(";
+	echo "Error :'(";
+	echo "<br>Tristesse";
 ?>
