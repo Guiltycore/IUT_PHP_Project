@@ -5,11 +5,11 @@
 		static private $debug = TRUE;
 
 		static private $databases = [
-			'hostname' => 'db705681969.db.1and1.com' ,
-			'database' => 'db705681969' ,
-			'login'    => 'dbo705681969' ,
-			'password' => 'Gh;]Yv<ZKM_87^%E' ,
-			'port'     => '3306',
+			'hostname' => 'guiltycore.fr' ,
+			'database' => 'eCommerce' ,
+			'login'    => 'eCommerce' ,
+			'password' => 'ecommerce' ,
+			'port'     => '3306'    ,
 		];
 
 		static public function getLogin ()
