@@ -77,6 +77,6 @@
 			require_once (File::build_path (array ('view','main','error.php')));
 		}
 	} else {
-		$controller_class ::readAll ();
+		ControllerProduit ::readAll ();
 	}
 ?>
