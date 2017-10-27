@@ -5,7 +5,7 @@
 	 * Date: 29/09/17
 	 * Time: 10:24
 	 */
-
+	require_once ( File ::build_path ( [ "controller" , "ControllerProduit.php" ] ) );
 
 	// On recupère l'action passée dans l'URL
 	// À remplir, voir Exercice 5.2
@@ -28,40 +28,39 @@
 						$controller_class ::readAll ();
 						break;
 					case "read":
-						$controller_class ::read ( $_GET[ $model_class::getPrimary ()] );
+						$controller_class ::read ( $_GET[ $model_class ::getPrimary () ] );
 						break;
 					case "create":
 						$controller_class ::create ();
 						break;
 					case "created":
-						$data= array ();
-						foreach ($_GET as $k=>$v){
-							if(strcmp($k,"action")!=0&& strcmp($k,"controller")!=0){
-								$data+=[$k=>$v];
+						$data = [];
+						foreach ( $_GET as $k => $v ) {
+							if ( strcmp ( $k , "action" ) != 0 && strcmp ( $k , "controller" ) != 0 ) {
+								$data += [ $k => $v ];
 							}
 						}
 						$controller_class ::created ( $data );
 						break;
 					case "delete":
-						$controller_class ::delete ( $_GET[ $model_class::getPrimary ()] );
+						$controller_class ::delete ( $_GET[ $model_class ::getPrimary () ] );
 						break;
 					case "update":
-						if(isset($_GET[ $model_class::getPrimary () ] )){
-							$controller_class ::update ( $_GET[ $model_class::getPrimary ()] );
+						if ( isset( $_GET[ $model_class ::getPrimary () ] ) ) {
+							$controller_class ::update ( $_GET[ $model_class ::getPrimary () ] );
 
 						}
-						else{
+						else {
 							$controller_class ::update ( NULL );
 						}
 						break;
 					case "updated":
 
-						$data= array ();
-						foreach ($_GET as $k=>$v){
-							if(strcmp($k,"action")!=0&& strcmp($k,"controller")!=0){
-								$data+=[$k=>$v];
+						$data = [];
+						foreach ( $_GET as $k => $v ) {
+							if ( strcmp ( $k , "action" ) != 0 && strcmp ( $k , "controller" ) != 0 ) {
+								$data += [ $k => $v ];
 							}
-
 
 						}
 						$controller_class ::updated ( $data );
@@ -70,13 +69,16 @@
 						$controller_class ::err ();
 						break;
 				}
-			} else {
+			}
+			else {
 				$controller_class ::readAll ();
 			}
-		} else {
-			require_once (File::build_path (array ('view','main','error.php')));
 		}
-	} else {
+		else {
+			require_once ( File ::build_path ( [ 'view' , 'main' , 'error.php' ] ) );
+		}
+	}
+	else {
 		ControllerProduit ::readAll ();
 	}
 ?>
