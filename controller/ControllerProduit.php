@@ -10,10 +10,18 @@
 
 	class ControllerProduit
 	{
+		protected static $listMax=4;
 		protected static $object;
-		public static function readAll ()
+		public static function readAll ($p)
 		{
-			$tab_p = ModelProduit ::selectAll ();     //appel au modèle pour gerer la BD
+
+			$tab = ModelProduit ::selectAll ();     //appel au modèle pour gerer la BD
+			$page=$p;
+			$maxPage=count ($tab)/self::$listMax;
+			$tab_p= array ();
+			for($i=self::$listMax*($p-1);$i<self::$listMax*$p&&$i<count ($tab);++$i){
+				$tab_p[]=$tab[$i];
+			}
 			$object = 'produit';
 			$view = 'list';
 			$pagetitle = 'Liste des produits';
@@ -46,19 +54,28 @@
 		public static function updated ( $data )
 		{
 			ModelProduit ::update ( $data );
-			$object = 'produit';
-			$view = 'updated';
-			$pagetitle = 'Liste des produits';
-			$tab_p = ModelProduit ::selectAll ();
-			require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
+			self::readAll (1);
 		}
 		public static function created ( $data )
 		{
 			ModelProduit ::save ( $data );
-			$tab_p = ModelProduit ::selectAll ();
-			$object = 'produit';
-			$view = 'created';
-			$pagetitle = 'Liste des produits';
-			require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
+			self::readAll (1);
+
+		}
+		public static function generate($size){
+			for($i=0;$i<$size;++$i){
+				ModelProduit ::save (["nom_p"=>self::generateRandomString (30),"description_p"=>' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque scelerisque neque lacus, pellentesque aliquet eros fringilla quis. Aliquam id massa ligula. Sed ultricies nisl sed ultrices vulputate. Sed sodales vel tortor non ultrices. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce pretium vitae dolor malesuada mattis. Fusce non blandit diam, non imperdiet nunc. ',"prix_p"=>rand (0,100)]);
+			}
+			self::readAll (1);
+
+		}
+		private static function generateRandomString($length = 10) {
+			$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+			$charactersLength = strlen($characters);
+			$randomString = '';
+			for ($i = 0; $i < $length; $i++) {
+				$randomString .= $characters[rand(0, $charactersLength - 1)];
+			}
+			return $randomString;
 		}
 	}

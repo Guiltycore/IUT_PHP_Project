@@ -25,7 +25,11 @@
 
 				switch ( $action ) {
 					case "readAll":
-						$controller_class ::readAll ();
+						if(isset($_GET['p'])){
+							$controller_class ::readAll ($_GET['p']);
+						}else{
+							$controller_class ::readAll (1);
+						}
 						break;
 					case "read":
 						$controller_class ::read ( $_GET[ $model_class ::getPrimary () ] );
@@ -65,13 +69,16 @@
 						}
 						$controller_class ::updated ( $data );
 						break;
+					case "generate":
+						$controller_class::generate($_GET['s']);
+						break;
 					default:
-						$controller_class ::err ();
+						require_once ( File ::build_path ( [ 'view' , 'main' , 'error.php' ] ) );
 						break;
 				}
 			}
 			else {
-				$controller_class ::readAll ();
+				require_once ( File ::build_path ( [ 'view' , 'main' , 'error.php' ] ) );
 			}
 		}
 		else {
@@ -79,6 +86,6 @@
 		}
 	}
 	else {
-		ControllerProduit ::readAll ();
+		ControllerProduit ::readAll (1);
 	}
 ?>
