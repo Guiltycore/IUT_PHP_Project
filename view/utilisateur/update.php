@@ -16,7 +16,7 @@
 		<input type='password' placeholder='Ex : MyLifeForAïur\' name='mdp_conf' id='mdp_conf_id' required/>
 		
 		<label for=\"adr_id\">Adresse</label> :
-		<input type=\"adresse\" placeholder=\"Ex : 3 rue Shakura\" name=\"adr\" id=\"adr_id\" value=\"" . $v -> getAdresse () . "\" required/>		
+		<input type=\"adresse\" placeholder=\"Ex : 3 rue Shakura\" name=\"adresse\" id=\"adr_id\" value=\"" . $v -> getAdresse () . "\" required/>		
 		
 		<input type='hidden' name='login' value='".$v->getLogin()."'>
 		<input type='hidden' name='action' value='updated'>
@@ -49,7 +49,7 @@
 		<input id=\"admin_id\" type=\"checkbox\" name=\"admin\" value=\"1\" >
 		
 		<label for=\"adr_id\">Adresse</label> :
-		<input type=\"adresse\" placeholder=\"Ex :3 rue Adun\" name=\"adr\" id=\"adr_id\" required/>
+		<input type=\"adresse\" placeholder=\"Ex :3 rue Adun\" name=\"adresse\" id=\"adr_id\" required/>
 		
 		<label for=\"mail_id\">Mail</label>
 		<input name=\"mail\" id=\"mail_id\" type=\"email\">
