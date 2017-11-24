@@ -3,6 +3,15 @@ a{
     color:black;
 }
 
+header nav ul{
+    list-style-type : none;
+}
+
+header nav ul li{
+    display : inline;
+    padding : 0 0.5em;
+}
+
 footer p{
     border: 1px solid black;
     text-align:center;
