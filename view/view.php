@@ -8,8 +8,8 @@
 	<body>
 		<header>
 			<nav>
-				<ul style="list-style-type : none;">
-					<li style="display : inline;padding : 0 0.5em;">
+				<ul id="liste">
+					<li>
 						<a href="index.php">Home</a>
 					</li>
 				</ul>
@@ -20,7 +20,7 @@
 			require $filepath;
 		?>
 		<footer>
-			<p style="border: 1px solid black;text-align:center;padding-right:1em;">
+			<p>
 				Site de covoiturage de eGoodies.com
 			</p>
 		</footer>
