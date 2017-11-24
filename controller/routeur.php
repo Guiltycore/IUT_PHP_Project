@@ -16,12 +16,6 @@
 
 		$controller = $_GET[ 'controller' ];
 		$model_class;
-		if(strcmp($controller,"utilisateur")==0){
-			$model_class= 'ModelUser';
-		}
-		else{
-			$model_class = 'Model' . ucfirst ( $controller );
-		}
 		$controller_class = 'Controller' . ucfirst ( $controller );
 
 		if ( class_exists ( $controller_class ) ) {
