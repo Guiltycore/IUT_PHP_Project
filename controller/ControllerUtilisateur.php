@@ -38,7 +38,7 @@
 				$pagetitle = 'Détail du utilisateur.';
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );  //"redirige" vers la vue
 			}else{
-				ModelProduit::readAll (1);
+				ControllerProduit::readAll (1);
 			}
 		}
 		public static function delete ( $login )
@@ -52,7 +52,7 @@
 				$pagetitle = 'Utilisateur supprimé';
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
 			}else{
-				ModelProduit::readAll (1);
+				ControllerProduit::readAll (1);
 			}
 		}
 		public static function update ( $imma )
@@ -65,7 +65,7 @@
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
 
 			}else if(!Session::is_user ($imma)||!Session::is_admin ()){
-				ModelProduit::readAll (1);
+				ControllerProduit::readAll (1);
 			}
 			else{
 
@@ -82,7 +82,7 @@
 				$data[ "mdp" ] = Security ::chiffrer ( $data[ "mdp" ] );
 				ModelUtilisateur ::update ( $data );
 			}
-			ModelProduit::readAll (1);
+			ControllerProduit::readAll (1);
 		}
 		public static function created ( $data )
 		{
@@ -99,7 +99,7 @@
 					"Here is a link inorder to validate your account http://php.yvesdaniel.fr/index.php?login=".$data["login"]."&nonce=".$data["nonce"]."&controller=utilisateur&action=validate",
 					"From:" . $from);
 			}
-			ModelProduit::readAll (1);
+			ControllerProduit::readAll (1);
 
 		}
 		public static function connect ()
@@ -111,7 +111,7 @@
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
 			}
 			else {
-				ModelProduit ::readAll (1);
+				ControllerProduit ::readAll (1);
 			}
 		}
 		public static function connected ( $login , $mdp )
@@ -121,7 +121,7 @@
 				if ( ModelUtilisateur ::checkPassword ( $login , $mdp )&&is_null ($g->getNonce())) {
 					$_SESSION[ "login" ] = $g -> getLogin ();
 					$_SESSION[ "admin" ] = $g -> getAdmin ();
-					ModelProduit ::readAll (1);
+					ControllerProduit ::readAll (1);
 				}
 				else {
 					echo "Mauvais mot de passe.";
@@ -132,7 +132,7 @@
 				}
 			}
 			else {
-				ModelProduit ::readAll (1);
+				ControllerProduit ::readAll (1);
 			}
 		}
 		public static function disconnect ()
@@ -142,7 +142,7 @@
 				session_destroy ();
 				setcookie ( session_name () , '' , time () - 1 );
 			}
-			ModelProduit ::readAll (1);
+			ControllerProduit ::readAll (1);
 		}
 		public static function validate($login,$nonce){
 			if(ModelUtilisateur::checkValidity ($login,$nonce)){
@@ -152,11 +152,11 @@
 					"nonce"=>NULL
 				];
 				ModelUtilisateur::update ($data);
-				ModelProduit::readAll (1);
+				ControllerProduit::readAll (1);
 			}
 			else{
 				echo "Wrong login/nonce";
-				ModelProduit::readAll (1);
+				ControllerProduit::readAll (1);
 			}
 		}
 
