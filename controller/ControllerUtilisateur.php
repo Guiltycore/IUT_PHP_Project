@@ -90,6 +90,8 @@
 				unset($data[ "mdp_conf" ]);
 				$data[ "mdp" ] = Security ::chiffrer ( $data[ "mdp" ] );
 				$data["nonce"] = Security::generateRandomHex ();
+				$data["solde"]=0;
+				$data["admin"]=0;
 				$from="noreply@php.yvesdaniel.fr";
 				ModelUtilisateur ::save ( $data );
 				mail($data["mail"],
