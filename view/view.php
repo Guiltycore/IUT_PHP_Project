@@ -12,6 +12,15 @@
 					<li>
 						<a href="index.php">Home</a>
 					</li>
+					<?php
+						if ( !isset( $_SESSION[ "login" ] ) ) {
+							echo "<li><a href=\"index.php?action=connect&controller=utilisateur\">Connect</a></li>\n<li><a href='index?action=update&controller=utilisateur'>Créer compte</a></li>";
+						}
+						else {
+							echo "<li><a href=\"index.php?action=disconnect&controller=utilisateur\">Disconnect</a></li>";
+						}
+					?>
+
 				</ul>
 			</nav>
 		</header>
