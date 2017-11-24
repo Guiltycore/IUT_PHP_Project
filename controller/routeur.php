@@ -16,6 +16,8 @@
 
 		$controller = $_GET[ 'controller' ];
 		$model_class;
+		$model_class = 'Model' . ucfirst ( $controller );
+
 		$controller_class = 'Controller' . ucfirst ( $controller );
 
 		if ( class_exists ( $controller_class ) ) {
