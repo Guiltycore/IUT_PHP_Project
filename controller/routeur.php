@@ -10,7 +10,7 @@
 	require_once File ::build_path ( [ 'controller' , 'ControllerUtilisateur.php' ] );
 	require_once File ::build_path ( [ 'controller' , 'ControllerProduit.php' ] );
 	require_once ( File ::build_path ( [ "model" , "ModelProduit.php" ] ) );
-	require_once ( File ::build_path ( [ "model" , "Model.php" ] ) );
+	require_once ( File ::build_path ( [ "model" , "ModelUtilisateur.php" ] ) );
 
 	// On recupère l'action passée dans l'URL
 	// À remplir, voir Exercice 5.2

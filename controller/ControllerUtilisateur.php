@@ -6,7 +6,7 @@
 	 * Time: 10:35
 	 */
 
-	require_once ( File ::build_path ( [ "model" , "ModelProduit.php" ] ) );
+	require_once ( File ::build_path ( [ "model" , "ModelUtilisateur.php" ] ) );
 
 	class ControllerUtilisateur
 	{
