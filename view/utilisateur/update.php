@@ -44,16 +44,13 @@
 		<label for='mdp_conf_id'>Confirmer mot de passe</label>
 		<input type='password' placeholder='Ex : EnTaroTassadar\' name='mdp_conf' id='mdp_conf_id' required/>
 		
-		<input type=\"hidden\" name=\"admin\" value=\"0\" />
-		<label for=\"admin_id\">Admin</label>
-		<input id=\"admin_id\" type=\"checkbox\" name=\"admin\" value=\"1\" >
-		
 		<label for=\"adr_id\">Adresse</label> :
 		<input type=\"adresse\" placeholder=\"Ex :3 rue Adun\" name=\"adresse\" id=\"adr_id\" required/>
 		
 		<label for=\"mail_id\">Mail</label>
 		<input name=\"mail\" id=\"mail_id\" type=\"email\">
 		
+		<input type=\"hidden\" name=\"admin\" value=\"0\" />
 		<input type='hidden' name='action' value='created'>
 		<input type='hidden' name='controller' value='utilisateur'>
 	</p>
