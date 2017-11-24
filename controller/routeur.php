@@ -9,6 +9,9 @@
 
 	require_once File ::build_path ( [ 'controller' , 'ControllerUtilisateur.php' ] );
 	require_once File ::build_path ( [ 'controller' , 'ControllerProduit.php' ] );
+	require_once ( File ::build_path ( [ "model" , "ModelProduit.php" ] ) );
+	require_once ( File ::build_path ( [ "model" , "Model.php" ] ) );
+
 	// On recupère l'action passée dans l'URL
 	// À remplir, voir Exercice 5.2
 	// Appel de la méthode statique $action de ControllerVoiture
