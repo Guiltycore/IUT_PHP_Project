@@ -3,8 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title><?php echo $pagetitle; ?></title>
-		<link rel="stylesheet" type="text/css" href="css/style.css"
-
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
 		<header>
@@ -21,7 +20,7 @@
 			require $filepath;
 		?>
 		<footer>
-			<p style="border: 1px solid black;text-align:right;padding-right:1em;">
+			<p style="border: 1px solid black;text-align:center;padding-right:1em;">
 				Site de covoiturage de eGoodies.com
 			</p>
 		</footer>
