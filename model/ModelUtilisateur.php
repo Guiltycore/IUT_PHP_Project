@@ -130,7 +130,18 @@
 			return !empty($req_prep->fetchAll ());
 		}
 
+		/**
+		 * @return mixed
+		 */
+		public function getMdp ()
+		{
+			return $this -> mdp;
+		}
+
+
+
 
 	}
+
 
 ?>
