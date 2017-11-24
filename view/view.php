@@ -8,8 +8,8 @@
 	<body>
 		<header>
 			<nav>
-				<ul style="list-style-type : none;">
-					<li style="display : inline;padding : 0 0.5em;">
+				<ul>
+					<li>
 						<a href="index.php">Home</a>
 					</li>
 				</ul>
