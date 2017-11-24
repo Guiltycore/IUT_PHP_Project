@@ -15,7 +15,7 @@
 		private $login;
 		private $mdp;
 		private $adresse;
-		private $sold;
+		private $solde;
 		private $nom;
 		private $prenom;
 		private $admin;
@@ -29,7 +29,7 @@
 				$this -> login = $l;
 				$this -> mdp = $m;
 				$this -> adresse = $a;
-				$this -> sold = $s;
+				$this -> solde = $s;
 				$this -> nom = $n;
 				$this -> prenom = $p;
 				$this -> admin = $ad;
@@ -57,9 +57,9 @@
 		/**
 		 * @return mixed
 		 */
-		public function getSold ()
+		public function getSolde ()
 		{
-			return $this -> sold;
+			return $this -> solde;
 		}
 
 		/**
