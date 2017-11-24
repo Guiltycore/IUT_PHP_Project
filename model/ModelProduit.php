@@ -5,7 +5,7 @@ require_once(File::build_path(["model", "Model.php"]));
 
 class ModelProduit extends Model {
 
-    protected static $object = "produit";
+    protected static $object = "Produit";
     protected static $primary = 'id_p';
     private $id_p;
     private $nom_p;
