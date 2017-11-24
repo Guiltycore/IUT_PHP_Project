@@ -1,7 +1,7 @@
 <?php
 	echo "<form method=\"get\" action=\"index.php?\">";
-	if ( isset($_GET[ModelUser::getPrimary ()]) ) {
-		$v = ModelUser ::select ( $_GET[ModelUser::getPrimary ()]);
+	if ( isset($_GET[ModelUtilisateur::getPrimary ()]) ) {
+		$v = ModelUtilisateur ::select ( $_GET[ModelUtilisateur::getPrimary ()]);
 		echo "<fieldset>
 	<legend>Mon formulaire :</legend>
 	<p>
