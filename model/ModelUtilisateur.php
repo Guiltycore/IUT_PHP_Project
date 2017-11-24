@@ -102,6 +102,33 @@
 			return $this -> nonce;
 		}
 
+		public static function checkPassword($login,$mot_de_passe_chiffre){
+			$sql = "SELECT * 
+					FROM Utilisateur 
+					WHERE mdp=:mdp and login=:login";
+			$req_prep = Model ::$pdo -> prepare ( $sql );
+			$match = [
+				"login"  => $login ,
+				"mdp" => Security::chiffrer ($mot_de_passe_chiffre)
+			];
+			$req_prep -> execute ( $match );
+			$req_prep -> setFetchMode ( PDO::FETCH_CLASS , 'ModelUtilisateur' );
+			return !empty($req_prep->fetchAll ());
+		}
+
+		public static function checkValidity($login,$nonce){
+			$sql = "SELECT * 
+					FROM Utilisateur	 
+					WHERE nonce=:nonce and login=:login";
+			$req_prep = Model ::$pdo -> prepare ( $sql );
+			$match = [
+				"login"  => $login ,
+				"nonce" => $nonce
+			];
+			$req_prep -> execute ( $match );
+			$req_prep -> setFetchMode ( PDO::FETCH_CLASS , 'ModelUtilisateur' );
+			return !empty($req_prep->fetchAll ());
+		}
 
 
 	}
