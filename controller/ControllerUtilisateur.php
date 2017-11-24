@@ -142,7 +142,7 @@
 				session_destroy ();
 				setcookie ( session_name () , '' , time () - 1 );
 			}
-			ModelProduit ::readAll ();
+			ModelProduit ::readAll (1);
 		}
 		public static function validate($login,$nonce){
 			if(ModelUtilisateur::checkValidity ($login,$nonce)){
