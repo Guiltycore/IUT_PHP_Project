@@ -50,7 +50,6 @@
 		<label for=\"mail_id\">Mail</label>
 		<input name=\"mail\" id=\"mail_id\" type=\"email\">
 		
-		<input type=\"hidden\" name=\"admin\" value=\"0\" />
 		<input type='hidden' name='action' value='created'>
 		<input type='hidden' name='controller' value='utilisateur'>
 	</p>
