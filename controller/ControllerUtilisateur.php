@@ -132,7 +132,7 @@
 				}
 			}
 			else {
-				ModelProduit ::readAll ();
+				ModelProduit ::readAll (1);
 			}
 		}
 		public static function disconnect ()
