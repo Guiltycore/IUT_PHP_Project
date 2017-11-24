@@ -138,6 +138,14 @@
 			return $this -> mdp;
 		}
 
+		/**
+		 * @return string
+		 */
+		public static function getPrimary ()
+		{
+			return self ::$primary;
+		}
+
 
 
 
