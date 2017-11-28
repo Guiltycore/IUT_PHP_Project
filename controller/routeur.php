@@ -44,7 +44,7 @@
 						break;
 					case "created":
 						$data= array ();
-						foreach ($_GET as $k=>$v){
+						foreach ($_POST as $k=>$v){
 							if(strcmp($k,"action")!=0&& strcmp($k,"controller")!=0){
 								$data+=[$k=>$v];
 							}
@@ -66,7 +66,7 @@
 					case "updated":
 
 						$data= array ();
-						foreach ($_GET as $k=>$v){
+						foreach ($_POST as $k=>$v){
 							if(strcmp($k,"action")!=0&& strcmp($k,"controller")!=0){
 								$data+=[$k=>$v];
 							}
@@ -78,7 +78,7 @@
 						$controller_class::connect();
 						break;
 					case "connected":
-						$controller_class::connected($_GET["login"],$_GET["mdp"]);
+						$controller_class::connected($_POST["login"],$_POST["mdp"]);
 						break;
 					case "disconnect":
 						$controller_class::disconnect();

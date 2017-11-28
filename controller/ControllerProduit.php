@@ -53,11 +53,19 @@
 		}
 		public static function updated ( $data )
 		{
+			$uploadfile = './img/'.basename($_FILES['pic_p']['name']);
+			if (isset($_FILES['pic_p'])&&move_uploaded_file($_FILES['pic_p']['tmp_name'], $uploadfile)) {
+				$data['pic_p']=$uploadfile;
+			}
 			ModelProduit ::update ( $data );
 			self::readAll (1);
 		}
 		public static function created ( $data )
 		{
+			$uploadfile = './img/'.basename($_FILES['pic_p']['name']);
+			if (isset($_FILES['pic_p'])&&move_uploaded_file($_FILES['pic_p']['tmp_name'], $uploadfile)) {
+				$data['pic_p']=$uploadfile;
+			}
 			ModelProduit ::save ( $data );
 			self::readAll (1);
 

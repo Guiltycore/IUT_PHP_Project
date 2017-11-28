@@ -1,6 +1,7 @@
 <?php
-	echo "<form method=\"get\" action=\"index.php?\">";
 	if ( isset($_GET[ModelUtilisateur::getPrimary ()]) ) {
+		echo "<form method=\"post\" action=\"index.php?action=updated&controller=utilisateur\" enctype=\"multipart/form-data\">";
+
 		$v = ModelUtilisateur ::select ( $_GET[ModelUtilisateur::getPrimary ()]);
 		echo "<fieldset>
 	<legend>Mon formulaire :</legend>
@@ -19,8 +20,6 @@
 		<input type=\"adresse\" placeholder=\"Ex : 3 rue Shakura\" name=\"adresse\" id=\"adr_id\" value=\"" . $v -> getAdresse () . "\" required/>		
 		
 		<input type=\"hidden\" name=\"login\" value=\"".$v->getLogin()."\">
-		<input type=\"hidden\" name=\"action\" value=\"updated\">
-		<input type=\"hidden\" name=\"controller\" value=\"utilisateur\">
 	</p>
 	<p>
 		<input type=\"submit\" value=\"Envoyer\"/>
@@ -28,6 +27,8 @@
 </fieldset>
 </form>";
 	} else {
+		echo "<form method=\"post\" action=\"index.php?action=created&controller=utilisateur\" enctype=\"multipart/form-data\">";
+
 		echo "
 <fieldset>
 	<legend>Mon formulaire :</legend>
@@ -50,8 +51,6 @@
 		<label for=\"mail_id\">Mail</label>
 		<input name=\"mail\" id=\"mail_id\" type=\"email\">
 		
-		<input type=\"hidden\" name=\"action\" value=\"created\">
-		<input type=\"hidden\" name=\"controller\" value=\"utilisateur\">
 	</p>
 	<p>
 		<input type=\"submit\" value=\"Envoyer\"/>

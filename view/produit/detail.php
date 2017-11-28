@@ -6,7 +6,8 @@
 	 * Time: 11:46
 	 */
 	if ( $p !== FALSE ) {
-		echo "<p>
+
+		echo "<p><img src='".$p->getPicP()."'><br>
 Nom:" . $p -> getNom_p () . "
 <br>Prix: " . $p -> getPrix_p () . "
 <br>Description:<br><br>" . $p -> getDescription_p ();

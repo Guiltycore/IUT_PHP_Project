@@ -14,6 +14,7 @@
 		protected static $primary = 'login';
 		private $login;
 		private $mdp;
+
 		private $adresse;
 		private $solde;
 		private $nom;
@@ -22,7 +23,7 @@
 		private $mail;
 		private $nonce;
 
-		public function __construct ( $l , $m , $a , $s , $n , $p , $ad , $ma , $n )
+		public function __construct ( $l= NULL , $m= NULL , $a= NULL , $s= NULL , $n= NULL , $p= NULL , $ad = NULL, $ma= NULL , $no= NULL )
 		{
 			if ( !is_null ( $l ) && !is_null ( $m ) && !is_null ( $a ) && !is_null ( $s ) && !is_null ( $n ) && !is_null ( $p ) && !is_null ( $ad ) && !is_null ( $ma ) ) {
 
@@ -34,7 +35,7 @@
 				$this -> prenom = $p;
 				$this -> admin = $ad;
 				$this -> mail = $ma;
-				$this -> nonce = $n;
+				$this -> nonce = $no;
 			}
 		}
 
@@ -111,9 +112,12 @@
 				"login"  => $login ,
 				"mdp" => Security::chiffrer ($mot_de_passe_chiffre)
 			];
+			$class_name = 'Model' . ucfirst ( static ::$object );
+
 			$req_prep -> execute ( $match );
-			$req_prep -> setFetchMode ( PDO::FETCH_CLASS , 'ModelUtilisateur' );
-			return !empty($req_prep->fetchAll ());
+			$req_prep -> setFetchMode ( PDO::FETCH_CLASS , $class_name );
+			$tab=$req_prep->fetchAll ();
+			return !empty($tab);
 		}
 
 		public static function checkValidity($login,$nonce){
@@ -126,6 +130,7 @@
 				"nonce" => $nonce
 			];
 			$req_prep -> execute ( $match );
+
 			$req_prep -> setFetchMode ( PDO::FETCH_CLASS , 'ModelUtilisateur' );
 			return !empty($req_prep->fetchAll ());
 		}

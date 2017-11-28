@@ -5,7 +5,7 @@
 	 * Date: 17/11/17
 	 * Time: 10:07
 	 */
-	echo "<form method=\"get\" action=\"index.php\">\n
+	echo "<form method=\"post\" action=\"index.php?controller=utilisateur&action=connected\">\n
 			<p>\n
 			<label for='login_id'>Login</label> :\n
 			<input type='text'  name='login' id='login_id_id' required/>\n
