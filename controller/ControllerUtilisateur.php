@@ -53,13 +53,9 @@
 			if(Session::is_user ($login)||Session::is_admin ()){
 
 				ModelUtilisateur ::delete ( $login );
-				$tab_p = ModelUtilisateur ::selectAll ();
-				$object = 'utilisateur';
-				$view = 'delete';
-				$pagetitle = 'Utilisateur supprimé';
-				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
-			}else{
 				ControllerProduit::readAll (1);
+
+			}else{
 			}
 		}
 		public static function update ( $imma )
