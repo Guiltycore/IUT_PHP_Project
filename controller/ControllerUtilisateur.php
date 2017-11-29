@@ -56,6 +56,8 @@
 				ControllerProduit::readAll (1);
 
 			}else{
+				ControllerProduit::readAll (1);
+
 			}
 		}
 		public static function update ( $imma )
