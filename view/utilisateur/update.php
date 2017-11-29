@@ -1,8 +1,8 @@
 <?php
-	if ( isset($_GET[ModelUtilisateur::getPrimary ()]) ) {
+	if (isset($_SESSION["login"]) ) {
 		echo "<form method=\"post\" action=\"index.php?action=updated&controller=utilisateur\" enctype=\"multipart/form-data\">";
 
-		$v = ModelUtilisateur ::select ( $_GET[ModelUtilisateur::getPrimary ()]);
+		$v = ModelUtilisateur ::select ($_SESSION["login"]);
 		echo "<fieldset>
 	<legend>Mon formulaire :</legend>
 	<p>

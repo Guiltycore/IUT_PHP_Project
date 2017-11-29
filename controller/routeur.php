@@ -37,7 +37,13 @@
 						}
 						break;
 					case "read":
-						$controller_class ::read ( $_GET[ $model_class::getPrimary ()] );
+						if(isset($_GET[$model_class::getPrimary()])){
+
+							$controller_class ::read ( $_GET[ $model_class::getPrimary ()] );
+						}
+						else{
+							$controller_class::read(NULL);
+						}
 						break;
 					case "create":
 						$controller_class ::create ();

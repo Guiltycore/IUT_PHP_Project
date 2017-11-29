@@ -30,15 +30,22 @@
 		}
 		public static function read ( $login )
 		{
-			if(Session::is_user ($login)||Session::is_admin ()) {
+			if($login===NULL&&!empty( $_SESSION[ 'login' ] )){
+				$u = ModelUtilisateur ::select ( $_SESSION[ 'login' ] );
+				$object = 'utilisateur';
+				$view = 'detail';
+				$pagetitle = 'Mon compte';
+				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
+			}
+			else if(Session::is_user ($login) ||Session::is_admin ()) {
 
-				$p = ModelUtilisateur ::select ( $login );
+				$u = ModelUtilisateur ::select ( $login );
 				$object = 'utilisateur';
 				$view = 'detail';
 				$pagetitle = 'Détail du utilisateur.';
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );  //"redirige" vers la vue
 			}else{
-				ControllerProduit::readAll (1);
+				ControllerUtilisateur::connect ();
 			}
 		}
 		public static function delete ( $login )
