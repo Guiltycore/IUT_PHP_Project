@@ -1,7 +1,11 @@
 
 <?php
 	// Display of the products stored in $tab_p
+
+
+
 	echo "<br>Liste des produits<br>";
+
 	foreach ( $tab_p as $p ) {
 		echo '<p><img src=\''
 			.$p->getPicP()
