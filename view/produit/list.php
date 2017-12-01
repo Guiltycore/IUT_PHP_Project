@@ -7,7 +7,9 @@
 	<input id=\"search\" type=\"text\" placeholder=\"Rechercher\" />
 	<input id=\"search-btn\" type=\"submit\" value=\"Rechercher\" />
 		</form>";
-
+	if(isset($_COOKIE["panier"])){
+		echo "<p>".$_COOKIE["panier"]."</p>";
+	}
 	echo "<br>Liste des produits<br>";
 
 	foreach ( $tab_p as $p ) {
