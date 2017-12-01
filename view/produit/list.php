@@ -1,6 +1,14 @@
 
 <?php
 	// Display of the products stored in $tab_p
+	echo "<ul>
+	<li>
+	<form action="/search" id="searchthis" method="get">
+	<input id="search" name="q" type="text" placeholder="Rechercher" />
+	<input id="search-btn" type="submit" value="Rechercher" />
+		</form>
+	</li></ul>";
+
 	echo "<br>Liste des produits<br>";
 
 
