@@ -8,7 +8,7 @@
 	echo "<form method=\"post\" action=\"index.php?controller=utilisateur&action=connected\">\n
 			<p>\n
 			<label for='login_id'>Login</label> :\n
-			<input type='text'  name='login' id='login_id_id' required/>\n
+			<input type='text'  name='login' id='login_id' required/>\n
 			<label for='mdp_id'>Mot de passe</label>\n
 			<input type='password' name='mdp' id='mdp_id' required>\n
 			<input type='hidden' name='controller' value='utilisateur'>
