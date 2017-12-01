@@ -87,13 +87,13 @@
 			return $randomString;
 		}
 		public static function ajouterAuPanier($idp){
-			if (!isset($_COOKIE['panier'])) {	//creation du panier (si inexistant)
-				setcookie("panier", "idp", time()+3600);
+			setcookie("panier", $idp, time()+3600);
+			/*if (!isset($_COOKIE['panier'])) {	//creation du panier (si inexistant)
 			}
 			else{
-				setcookie("panier", "idp", time()-1);
+				setcookie("panier", "", time()-1);
 
-			}
+			}*/
 			self::readAll (1);
 
 
