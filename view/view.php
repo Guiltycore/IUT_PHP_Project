@@ -20,6 +20,12 @@
 							echo "<li><a href='index.php?action=read&controller=utilisateur'>Mon compte</a></li>&emsp;\n<li><a href=\"index.php?action=disconnect&controller=utilisateur\">Disconnect</a></li>";
 						}
 					?>
+					<li>
+						<form action="/search" id="searchthis" method="get">
+							<input id="search" name="q" type="text" placeholder="Rechercher" />
+							<input id="search-btn" type="submit" value="Rechercher" />
+						</form>
+					</li>
 
 				</ul>
 			</nav>
