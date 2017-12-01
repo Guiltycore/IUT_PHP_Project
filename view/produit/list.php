@@ -18,7 +18,10 @@
 			. '\'>'
 			. htmlspecialchars ( $p -> getNom_p () )
 			. '</a>.';
-		echo "<form method=\"get\" action=\"index.php?action=ap&controller=produit\">
+		echo "<form method=\"get\" action=\"index.php?action=ap&controller=produit&\">
+				<input type='hidden' name='action' value='ap'>
+				<input type='hidden' name='controller' value='produit'>
+
 				<input type='hidden' name='id_p' value='".$p->getID_p()."'>
 				<input type=\"submit\" value=\"Ajouter au panier\"/>
 
