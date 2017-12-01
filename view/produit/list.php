@@ -7,9 +7,7 @@
 	<input id=\"search\" type=\"text\" placeholder=\"Rechercher\" />
 	<input id=\"search-btn\" type=\"submit\" value=\"Rechercher\" />
 		</form>";
-/* if(isset ($name = $_GET[search])
 
-*/
 	if(isset($_COOKIE["panier"])){
 		echo "<p>".$_COOKIE["panier"]."</p>";
 	}
