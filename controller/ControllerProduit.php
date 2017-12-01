@@ -88,6 +88,7 @@
 		}
 		public static function ajouterAuPanier($idp){
 			if (!isset($_COOKIE['panier'])) {	//creation du panier (si inexistant)
+				echo "<p>test</p>";
 				setcookie("panier", "idp", time()+60); 
 			}
 			self::readAll (1);
