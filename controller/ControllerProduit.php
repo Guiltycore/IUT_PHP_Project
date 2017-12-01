@@ -87,8 +87,9 @@
 			return $randomString;
 		}
 		public static function ajouterAuPanier($idp){
-			echo "aaaaaaa";
 			setcookie("panier", $idp, time()+3600);
+			echo "aaaaaaa";
+
 			/*if (!isset($_COOKIE['panier'])) {	//creation du panier (si inexistant)
 			}
 			else{
