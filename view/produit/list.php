@@ -10,6 +10,9 @@
 	if(isset($_COOKIE["panier"])){
 		echo "<p>".$_COOKIE["panier"]."</p>";
 	}
+	else{
+		echo "<p>Pas de panier</p>";
+	}
 	echo "<br>Liste des produits<br>";
 
 	foreach ( $tab_p as $p ) {
