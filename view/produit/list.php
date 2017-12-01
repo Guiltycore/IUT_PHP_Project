@@ -3,7 +3,7 @@
 	// Display of the products stored in $tab_p
 	echo "<br>Liste des produits<br>";
 	foreach ( $tab_p as $p ) {
-		echo '<p><img src=\''.$p->getPicP().'\'height="80" width="80"><br><a href=\'./index.php?controller=produit&action=read&'.ModelProduit::getPrimary () .'=' . rawurlencode ( $p -> getID_p () ) . '\'>' . htmlspecialchars ( $p -> getNom_p () ) . '</a>.</p>';
+		echo '<p><img src=\''.$p->getPicP().'\' alt=\'Product Picture\' height="80" width="80"><br><a href=\'./index.php?controller=produit&action=read&'.ModelProduit::getPrimary () .'=' . rawurlencode ( $p -> getID_p () ) . '\'>' . htmlspecialchars ( $p -> getNom_p () ) . '</a>.</p>';
 	}
 	echo "<div>";
 	if($page>1){
