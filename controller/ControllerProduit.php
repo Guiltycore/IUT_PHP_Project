@@ -87,15 +87,19 @@
 			return $randomString;
 		}
 		public static function ajouterAuPanier($idp){
-			setcookie("panier", $idp, time()+3600);
+			
 			echo "aaaaaaa";
 
-			/*if (!isset($_COOKIE['panier'])) {	//creation du panier (si inexistant)
+			if (!isset($_COOKIE['panier'])) {
+				$tab = ["".$idp=>1];
+				setcookie("panier", serialize($tab), time()+3600);
 			}
 			else{
-				setcookie("panier", "", time()-1);
-
-			}*/
+				$tab = unserialize($_COOKIE["panier"]);
+				$var = isset($tab["".$idp])?$tab["".$idp]:0;
+				$tab["".$idp]=$var + 1;
+				setcookie("panier", serialize($tab), time()+3600);
+			}
 			self::readAll (1);
 
 
