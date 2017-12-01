@@ -2,24 +2,24 @@
 <?php
 	// Display of the products stored in $tab_p
 
-	echo "
-	<form action=\"/search.php\" method=\"get\">
+
+	echo "<div class=\"mdl-grid\"><div class=\"mdl-cell mdl-cell--12-col\"><h1>Liste des produits</h1></div></div>";
+	echo "<div class=\"mdl-grid\">";
+	echo "<div class=\"mdl-cell mdl-cell--12-col\"><form action=\"/search.php\" method=\"get\">
 	<input id=\"search\" type=\"text\" placeholder=\"Rechercher\" />
 	<input id=\"search-btn\" type=\"submit\" value=\"Rechercher\" />
-		</form>";
+		</form></div>";
 
-	if(isset($_COOKIE["panier"])){
-		echo "<p>".$_COOKIE["panier"]."</p>";
-	}
-	else{
-		echo "<p>Pas de panier</p>";
-	}
-	echo "<br><h1>Liste des produits</h1><br>";
 
 	foreach ( $tab_p as $p ) {
-		echo '<p><img src=\''
+		echo '<a href=\' ./index.php?controller=produit&action=read&'
+			.ModelProduit::getPrimary ()
+			.'='
+			. rawurlencode ( $p -> getID_p () )
+			. '\'>'.'<div class="mdl-cell mdl-cell--6-col"><img src=\''
 			.$p->getPicP()
-			.'\' alt=\'Product Picture\' height="80" width="80">
+			.'\' alt=\'Product Picture\' height="80" width="80"></a>
+			<a href="index.php?action=ap&controller=produit&id_p='.$p->getID_p().'" class="material-icons" >&#xE854;</a>
 			<br>
 			<a href=\'./index.php?controller=produit&action=read&'
 			.ModelProduit::getPrimary ()
@@ -27,20 +27,11 @@
 			. rawurlencode ( $p -> getID_p () )
 			. '\'>'
 			. htmlspecialchars ( $p -> getNom_p () )
-			. '</a>.';
-		echo "<form method=\"get\" action=\"index.php?action=ap&controller=produit&\">
-				<input type='hidden' name='action' value='ap'>
-				<input type='hidden' name='controller' value='produit'>
+			. '.</a>';
 
-				<input type='hidden' name='id_p' value='".$p->getID_p()."'>
-				<input type=\"submit\" value=\"Ajouter au panier\"/>
-
-		</form>
-		";
-
-		echo '</p>';
+		echo '</div>';
 	}
-	echo "<div>";
+	echo "</div><div>";
 	if($page>1){
 		echo "<a href='index.php?controller=produit&action=readAll&p=".($page-1)."'>Previous</a>-";
 	}

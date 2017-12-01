@@ -88,7 +88,6 @@
 		}
 		public static function ajouterAuPanier($idp){
 			
-			echo "aaaaaaa";
 
 			if (!isset($_COOKIE['panier'])) {
 				$tab = ["".$idp=>1];

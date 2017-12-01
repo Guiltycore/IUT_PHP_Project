@@ -11,9 +11,6 @@ a{
     display : inline;
     padding : 0 0.5em;
 }
-
-footer p{
-    border: 1px solid black;
-    text-align:center;
-    padding-right:1em;
+div{
+    text-align: center;
 }
