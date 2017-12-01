@@ -5,6 +5,8 @@
 	 * Date: 29/09/17
 	 * Time: 10:24
 	 */
+	setcookie("a","a",time()+120);
+
 	session_start();
 
 	require_once File ::build_path ( [ 'controller' , 'ControllerUtilisateur.php' ] );
