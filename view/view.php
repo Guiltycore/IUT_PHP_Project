@@ -57,7 +57,7 @@
 			</main>
 			<footer class="mdl-mega-footer">
 				<div class="mdl-mega-footer__middle-section">
-						Site de covoiturage de eGoodies.com
+						Site de vente de goodies, eGoodies.com
 				</div>
 			</footer>
 		</div>
