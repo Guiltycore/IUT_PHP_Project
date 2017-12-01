@@ -2,6 +2,14 @@
 <?php
 	// Display of the products stored in $tab_p
 	echo "<br>Liste des produits<br>";
+
+	<li>
+		<form action="/search" id="searchthis" method="get">
+		<input id="search" name="q" type="text" placeholder="Rechercher" />
+		<input id="search-btn" type="submit" value="Rechercher" />
+		</form>
+	</li>
+
 	foreach ( $tab_p as $p ) {
 		echo '<p><img src=\''.$p->getPicP().'\' alt=\'Product Picture\' height="80" width="80"><br><a href=\'./index.php?controller=produit&action=read&'.ModelProduit::getPrimary () .'=' . rawurlencode ( $p -> getID_p () ) . '\'>' . htmlspecialchars ( $p -> getNom_p () ) . '</a>.</p>';
 	}
