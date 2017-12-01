@@ -94,7 +94,7 @@
 						break;
 					case "ap":
 						$controller_class::ajouterAuPanier($_GET["id_p"]);
-						break
+						break;
 					default:
 						$controller_class ::err ();
 						break;
