@@ -92,6 +92,9 @@
 					case "validate":
 						$controller_class::validate($_GET["login"],$_GET["nonce"]);
 						break;
+					case "ap":
+						$controller_class::ajouterAuPanier($_GET["id_p"]);
+						break
 					default:
 						$controller_class ::err ();
 						break;
