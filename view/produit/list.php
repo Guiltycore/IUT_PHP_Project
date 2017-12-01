@@ -7,13 +7,16 @@
 	<input id=\"search\" type=\"text\" placeholder=\"Rechercher\" />
 	<input id=\"search-btn\" type=\"submit\" value=\"Rechercher\" />
 		</form>";
+/* if(isset ($name = $_GET[search])
+
+*/
 	if(isset($_COOKIE["panier"])){
 		echo "<p>".$_COOKIE["panier"]."</p>";
 	}
 	else{
 		echo "<p>Pas de panier</p>";
 	}
-	echo "<br>Liste des produits<br>";
+	echo "<br><h1>Liste des produits</h1><br>";
 
 	foreach ( $tab_p as $p ) {
 		echo '<p><img src=\''
