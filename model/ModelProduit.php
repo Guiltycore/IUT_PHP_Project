@@ -51,7 +51,12 @@ class ModelProduit extends Model {
 		return $this -> pic_p;
 	}
 
-
+/*	public function search() {
+		$sql = "SELECT * FROM Produit WHERE nom_p LIKE \'$_GET([search])\' ";
+		
+	}
+*/	
+	
 
     // CONSTRUCTEUR Produit
     public function __construct($i = NULL, $n = NULL, $d = NULL, $p = NULL,$pi=NULL) {
