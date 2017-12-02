@@ -103,4 +103,20 @@
 
 
 		}
+		public static function panier(){
+			$tab_p=[];
+
+			if (isset($_COOKIE['panier'])) {
+				$tab=unserialize($_COOKIE["panier"]);
+				foreach ($tab as $k=>$v){
+					$tab_p[serialize(ModelProduit::select($k))]=$v;
+				}
+			}
+
+			$object = 'produit';
+			$view = 'panier';
+			$pagetitle = 'Panier';
+			require ( File ::build_path ( [ 'view' , 'view.php' ] ) );  //"redirige" vers la vue
+
+		}
 	}
