@@ -18,10 +18,27 @@
 					<!-- Navigation. We hide it in small screens. -->
 					<nav class="mdl-navigation mdl-layout--large-screen-only">
 						<a class="mdl-navigation__link"href="index.php">Home</a>
+
+
+
 						<?php
 							if ( !isset( $_SESSION[ "login" ] ) ) {
-								echo "<a class=\"mdl-navigation__link\" href=\"index.php?action=connect&controller=utilisateur\">Connect</a>\n
-								      <a class=\"mdl-navigation__link\" href='index?action=update&controller=utilisateur'>Créer compte</a>";
+								echo "<form method=\"post\" action=\"index.php?controller=utilisateur&action=connected\">\n
+			
+			<span class=\"mdl-textfield mdl-js-textfield\">
+
+			<label for='login_id ' class=\"mdl-textfield__label\" >Login</label>\n
+			<input type='text'  name='login' id='login_id' class=\"mdl-textfield__input\" required/>\n
+			</span>
+			<span class=\"mdl-textfield mdl-js-textfield\">
+			<label for='mdp_id' class=\"mdl-textfield__label\">Mot de passe</label>\n
+			<input type='password' name='mdp' id='mdp_id' class=\"mdl-textfield__input\" required>\n
+			</span>
+			<input type='hidden' name='controller' value='utilisateur'>
+			<input type='hidden' name='action' value='connected'>\n
+			
+			<input type=\"submit\" value=\"Connect\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>\n
+		</form><a class=\"mdl-navigation__link\" href='index?action=update&controller=utilisateur'>Créer compte</a>";
 							}
 							else {
 								echo "<a class=\"mdl-navigation__link\" href='index.php?action=read&controller=utilisateur'>Mon compte</a>\n
