@@ -91,32 +91,19 @@
 
 			if (!isset($_COOKIE['panier'])) {
 				$tab = ["".$idp=>1];
+				setcookie("popo","ab",time()+3600);
 				setcookie("panier", serialize($tab), time()+3600);
 			}
 			else{
 				$tab = unserialize($_COOKIE["panier"]);
 				$var = isset($tab["".$idp])?$tab["".$idp]:0;
 				$tab["".$idp]=$var + 1;
+				setcookie("popo","ab",time()+3600);
 				setcookie("panier", serialize($tab), time()+3600);
 			}
 			self::readAll (1);
 
 
 		}
-		public static function panier(){
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		}
+		
 	}
