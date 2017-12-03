@@ -91,7 +91,6 @@
 
 			if (!isset($_COOKIE['panier'])) {
 				$tab = ["".$idp=>1];
-				print_r($tab);
 				setcookie("panier", serialize($tab), time()+3600);
 			}
 			else{
