@@ -22,7 +22,7 @@
 		<input type=\"hidden\" name=\"login\" value=\"".$v->getLogin()."\">
 	</p>
 	<p>
-		<input type=\"submit\" value=\"Envoyer\"/>
+		<input type=\"submit\" value=\"Envoyer\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>
 	</p>
 </fieldset>
 </form>";
@@ -53,7 +53,7 @@
 		
 	</p>
 	<p>
-		<input type=\"submit\" value=\"Envoyer\"/>
+		<input type=\"submit\" value=\"Envoyer\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>
 	</p>
 </fieldset>
 </form>

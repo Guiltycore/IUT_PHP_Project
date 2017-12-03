@@ -28,7 +28,7 @@
 		<input type='hidden' name='id_p' value='".$_GET[ ModelProduit::getPrimary () ]."'>
 	</p>
 	<p>
-		<input type=\"submit\" value=\"Envoyer\"/>
+		<input type=\"submit\" value=\"Envoyer\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>
 	</p>
 </fieldset>
 </form>";
@@ -55,7 +55,7 @@
 		
 	</p>
 	<p>
-		<input type=\"submit\" value=\"Envoyer\"/>
+		<input type=\"submit\" value=\"Envoyer\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>
 	</p>
 </fieldset>
 </form>

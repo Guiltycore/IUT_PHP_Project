@@ -14,6 +14,6 @@
 			<input type='hidden' name='controller' value='utilisateur'>
 			<input type='hidden' name='action' value='connected'>\n
 			</p>\n
-			<input type=\"submit\" value=\"Connect\"/>\n
+			<input type=\"submit\" value=\"Connect\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>\n
 		</form>\n";
 	?>
