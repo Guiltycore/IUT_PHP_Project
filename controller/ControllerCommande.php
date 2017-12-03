@@ -68,12 +68,14 @@
 				ModelCommande::save (["date"=> date("Y-m-d",time()),"login"=>$_SESSION["login"]]);
 				$c=ModelCommande::getUncompleteOrder($_SESSION["login"]);
 				foreach($data as $k=>$v){
-					ModelProduitCommande::save (["idC"=>$c->getIdC(),"idP"=>$k,"quantity"=>$v]);
+					ModelProduitCommande::save (["idC"=>($c->getIdC()),"idP"=>$k,"quantity"=>$v]);
 				}
+				setcookie("panier","",time()-1);
+				ControllerProduit::readAll(1);
 			}else{
 				ControllerUtilisateur::connect ();
 			}
-			self::readAll (1);
+
 
 		}
 	}

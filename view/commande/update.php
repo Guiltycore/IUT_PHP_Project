@@ -21,7 +21,7 @@
 				. htmlspecialchars ( $l -> getNom_p () )
 				. '</td>'
 				.'<td>'
-				.'<input type="number" id="'.$l->getID_p().'" value="'.$p.'">'.'</td>'
+				.'<input type="number" name="'.$l->getID_p().'" value="'.$p.'">'.'</td>'
 				.'<td>'.$l->getPrix_p().'</td>'
 				.'</tr>';
 		}

@@ -71,7 +71,7 @@
 			return $this -> login;
 		}
 
-		public function getUserOrder($login){
+		public static function getUserOrder($login){
 			$sql = "SELECT * 
 					FROM Commande 
 					WHERE login=:login";
@@ -86,7 +86,7 @@
 			return $tab;
 		}
 
-		public function getUncompleteOrder($login){
+		public static function getUncompleteOrder($login){
 			$sql= "SELECT idC 
 				   FROM Commande 
 				   WHERE login=:login and idC NOT IN 
@@ -98,6 +98,7 @@
 			];
 			$req_prep -> execute ( $match );
 			$req_prep -> setFetchMode ( PDO::FETCH_CLASS , "ModelCommande" );
+			$tab=$req_prep->fetchAll ();
 			if(empty($tab)){
 				return FALSE;
 			}
