@@ -7,10 +7,15 @@
 	 */
 	echo "<form method=\"post\" action=\"index.php?controller=utilisateur&action=connected\">\n
 			<p>\n
-			<label for='login_id'>Login</label> :\n
-			<input type='text'  name='login' id='login_id' required/>\n
-			<label for='mdp_id'>Mot de passe</label>\n
-			<input type='password' name='mdp' id='mdp_id' required>\n
+			<span class=\"mdl-textfield mdl-js-textfield\">
+
+			<label for='login_id ' class=\"mdl-textfield__label\" >Login</label> :\n
+			<input type='text'  name='login' id='login_id' class=\"mdl-textfield__input\" required/>\n
+			</span>
+			<span class=\"mdl-textfield mdl-js-textfield\">
+			<label for='mdp_id' class=\"mdl-textfield__label\">Mot de passe</label>\n
+			<input type='password' name='mdp' id='mdp_id' class=\"mdl-textfield__input\" required>\n
+			</span>
 			<input type='hidden' name='controller' value='utilisateur'>
 			<input type='hidden' name='action' value='connected'>\n
 			</p>\n
