@@ -9,7 +9,7 @@
 			<p>\n
 			<span class=\"mdl-textfield mdl-js-textfield\">
 
-			<label for='login_id ' class=\"mdl-textfield__label\" >Login</label> :\n
+			<label for='login_id ' class=\"mdl-textfield__label\" >Login</label>\n
 			<input type='text'  name='login' id='login_id' class=\"mdl-textfield__input\" required/>\n
 			</span>
 			<span class=\"mdl-textfield mdl-js-textfield\">
