@@ -28,7 +28,7 @@
 								      <a class=\"mdl-navigation__link\" href=\"index.php?action=disconnect&controller=utilisateur\">Disconnect</a>";
 							}
 						?>
-						<a class="mdl-navigation__link" href="index.php?action=panier&controller=produit"><span  class="material-icons mdl-badge mdl-badge--overlap" data-badge="<?php
+						<a class="mdl-navigation__link" href="index.php?action=update&controller=commande"><span  class="material-icons mdl-badge mdl-badge--overlap" data-badge="<?php
 
 							if(isset($_COOKIE['panier'])){
 								$i=0;

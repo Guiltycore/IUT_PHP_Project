@@ -83,7 +83,35 @@
 			$req_prep -> execute ( $match );
 			$req_prep -> setFetchMode ( PDO::FETCH_CLASS , "ModelCommande" );
 			$tab=$req_prep->fetchAll ();
-			return !empty($tab);
+			return $tab;
+		}
+
+		public function getUncompleteOrder($login){
+			$sql= "SELECT idC 
+				   FROM Commande 
+				   WHERE login=:login and idC NOT IN 
+				    (SELECT idC 
+				     FROM ProduitCommande);";
+			$req_prep = Model ::$pdo -> prepare ( $sql );
+			$match = [
+				"login"  => $login
+			];
+			$req_prep -> execute ( $match );
+			$req_prep -> setFetchMode ( PDO::FETCH_CLASS , "ModelCommande" );
+			if(empty($tab)){
+				return FALSE;
+			}
+			else{
+				return $tab[0];
+			}
+		}
+
+		/**
+		 * @return string
+		 */
+		public static function getPrimary ()
+		{
+			return self ::$primary;
 		}
 
 	}
