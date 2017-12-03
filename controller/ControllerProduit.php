@@ -91,13 +91,13 @@
 
 			if (!isset($_COOKIE['panier'])) {
 				$tab = ["".$idp=>1];
-				setcookie("panier", serialize($tab), time()+3600,'/','php.yvesdaniel.fr');
+				setcookie("panier", serialize($tab), time()+3600,'','php.yvesdaniel.fr');
 			}
 			else{
 				$tab = unserialize($_COOKIE["panier"]);
 				$var = isset($tab["".$idp])?$tab["".$idp]:0;
 				$tab["".$idp]=$var + 1;
-				setcookie("panier", serialize($tab), time()+3600,'/','php.yvesdaniel.fr');
+				setcookie("panier", serialize($tab), time()+3600,'','php.yvesdaniel.fr');
 			}
 			self::readAll (1);
 

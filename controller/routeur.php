@@ -7,7 +7,6 @@
 	 */
 
 	session_start();
-	setcookie("a","a",time()+3600);
 	require_once File ::build_path ( [ 'controller' , 'ControllerUtilisateur.php' ] );
 	require_once File ::build_path ( [ 'controller' , 'ControllerProduit.php' ] );
 	require_once File ::build_path ( [ 'controller' , 'ControllerCommande.php' ] );
