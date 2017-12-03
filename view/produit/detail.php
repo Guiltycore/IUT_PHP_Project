@@ -15,3 +15,4 @@ Nom:" . $p -> getNom_p () . "
 	} else {
 		require File ::build_path ( [ 'view' , 'utilisateur' , 'error.php' ] );
 	}
+	?>
