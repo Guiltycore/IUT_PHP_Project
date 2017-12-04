@@ -33,10 +33,11 @@
 	}
 	echo "</div><div>";
 	if($page>1){
-		echo "<a href='index.php?controller=produit&action=readAll&p=".($page-1)."'>Previous</a>-";
+		echo "<a href='index.php?controller=produit&action=readAll' class=\"material-icons\">&#xE5DC;</a>";
+		echo "<a href='index.php?controller=produit&action=readAll&p=".($page-1)."' class=\"material-icons\">&#xE5CB;</a>";
 	}
 	if($page<$maxPage){
-		echo "<a href='index.php?controller=produit&action=readAll&p=".($page+1)."'>Next</a>-<a href='index.php?controller=produit&action=readAll&p=".$maxPage."'>Last</a>";
+		echo "<a href='index.php?controller=produit&action=readAll&p=".($page+1)."' class=\"material-icons\">&#xE5CC;</a><a href='index.php?controller=produit&action=readAll&p=".$maxPage."' class=\"material-icons\">&#xE5DD;</a>";
 	}
 	echo "</div>";
 ?>
