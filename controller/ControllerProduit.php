@@ -93,6 +93,7 @@
 				$tab = ["".$idp=>1];
 				echo serialize($tab);
 				setcookie("panier", serialize($tab), time()+3600);
+				echo serialize($tab);
 			}
 			else{
 				$tab = unserialize($_COOKIE["panier"]);
