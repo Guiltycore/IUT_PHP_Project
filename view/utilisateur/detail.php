@@ -5,6 +5,8 @@
 	 * Date: 24/11/17
 	 * Time: 10:38
 	 */
+	echo "<section class=\"mdl-layout__tab-panel is-active\" id=\"fixed-tab-1\">
+      <div class=\"page-content\">";
 	echo "
 	<h1>Information du compte:</h1>
 	<div>
@@ -21,13 +23,28 @@
 	else{
 		echo "Utilisateur";
 	}
-	echo "</div>";
-	echo "	<h3>Action:</h3><div>
-	<ul>
-	<li><a href='index?action=update&controller=utilisateur'>Modifier mon compte</a></li>
-	<li><a href='index?action=delete&controller=utilisateur&login=".$u->getLogin()."'>DELETE</a></li>
-</ul>
-	
-</div>"
+
+
+	echo"</div></div>
+            </section><section class=\"mdl-layout__tab-panel\" id=\"fixed-tab-2\">
+      <div class=\"page-content\">";
+	require File::build_path([ "view" , "utilisateur" , "update.php"]);
+	echo "</div>
+    </section><section class=\"mdl-layout__tab-panel\" id=\"fixed-tab-3\">
+      <div class=\"page-content\">";
+	require File::build_path([ "view" , "commande" , "list.php"]);
+	echo "</div>
+    </section><section class=\"mdl-layout__tab-panel\" id=\"fixed-tab-4\">
+      <div class=\"page-content\">";
+	echo "<form method=\"post\" action=\"index.php\">
+		<input type=\"hidden\" name=\"action\" value=\"delete\">
+		<input type=\"hidden\" name=\"controller\" value=\"utilisateur\">
+			<input type=\"submit\" value=\"Supprimer\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>\n
+
+
+</form>";
+	echo "</div>
+    </section>";
+	echo "";
 
 ?>

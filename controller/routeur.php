@@ -45,7 +45,11 @@
 							$controller_class ::read ( $_GET[ $model_class::getPrimary ()] );
 						}
 						else{
-							$controller_class::read(NULL);
+							if(isset($_GET['p'])){
+								$controller_class ::read (NULL,$_GET['p']);
+							}else{
+								$controller_class ::read (NULL,1);
+							}
 						}
 						break;
 					case "create":

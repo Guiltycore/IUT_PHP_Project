@@ -31,7 +31,7 @@
 				ControllerUtilisateur::connect ();
 			}
 		}
-		public static function read ( $login )
+		public static function read ( $login ,$p)
 		{
 			//TODO
 			$object = 'commande';

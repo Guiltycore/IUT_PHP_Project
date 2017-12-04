@@ -7,6 +7,7 @@
 	 */
 
 	require_once ( File ::build_path ( [ "model" , "ModelUtilisateur.php" ] ) );
+	require_once ( File ::build_path ( [ "model" , "ModelCommande.php" ] ) );
 
 	class ControllerUtilisateur
 	{
@@ -17,6 +18,7 @@
 		{
 
 			$tab = ModelUtilisateur ::selectAll ();     //appel au modèle pour gerer la BD
+
 			$page=$p;
 			$maxPage=count ($tab)/self::$listMax;
 			$tab_p= array ();
@@ -28,17 +30,38 @@
 			$pagetitle = 'Liste des utilisateurs';
 			require ( File ::build_path ( [ 'view' , 'view.php' ] ) );  //"redirige" vers la vue
 		}
-		public static function read ( $login )
+		public static function read ( $login,$p )
 		{
 			if($login===NULL&&!empty( $_SESSION[ 'login' ] )){
 				$u = ModelUtilisateur ::select ( $_SESSION[ 'login' ] );
 				$object = 'utilisateur';
 				$view = 'detail';
 				$pagetitle = 'Mon compte';
+
+				$tab=ModelCommande::getUserOrder($_SESSION["login"]);
+
+				$page=$p;
+				$maxPage=count ($tab)/self::$listMax;
+				$tab_p= array ();
+				for($i=self::$listMax*($p-1);$i<self::$listMax*$p&&$i<count ($tab);++$i){
+					$tab[$i]->setPrixTotal($tab[$i]->getSQLPT($tab[$i]->getIdC()));
+					$tab_p[]=$tab[$i];
+
+				}
+
+
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
 			}
 			else if(Session::is_user ($login) ||Session::is_admin ()) {
+				$tab=ModelCommande::getUserOrder($_SESSION["login"]);
 
+				$page=$p;
+				$maxPage=count ($tab)/self::$listMax;
+				$tab_p= array ();
+				for($i=self::$listMax*($p-1);$i<self::$listMax*$p&&$i<count ($tab);++$i){
+					$tab[$i]->setPrixTotal($tab[$i]->getSQLPT($tab[$i]->getIdC()));
+					$tab_p[]=$tab[$i];
+				}
 				$u = ModelUtilisateur ::select ( $login );
 				$object = 'utilisateur';
 				$view = 'detail';
@@ -53,6 +76,11 @@
 			if(Session::is_user ($login)||Session::is_admin ()){
 
 				ModelUtilisateur ::delete ( $login );
+				if(Session::is_user($login)){
+					session_unset ();
+					session_destroy ();
+					setcookie ( session_name () , '' , time () - 1 );
+				}
 				ControllerProduit::readAll (1);
 
 			}else{
@@ -62,7 +90,7 @@
 		}
 		public static function update ( $imma )
 		{
-
+			$u=NULL;
 			if(is_null ($imma)){
 				$object = 'utilisateur';
 				$view = 'update';
@@ -73,7 +101,7 @@
 				ControllerProduit::readAll (1);
 			}
 			else{
-
+				$u = ModelUtilisateur ::select ( $_SESSION[ 'login' ] );
 				$object = 'utilisateur';
 				$view = 'update';
 				$pagetitle = 'User update';
@@ -87,7 +115,7 @@
 				$data[ "mdp" ] = Security ::chiffrer ( $data[ "mdp" ] );
 				ModelUtilisateur ::update ( $data );
 			}
-			ControllerProduit::readAll (1);
+			self::read (NULL,1);
 		}
 		public static function created ( $data )
 		{

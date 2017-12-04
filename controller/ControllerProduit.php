@@ -27,7 +27,7 @@
 			$pagetitle = 'Liste des produits';
 			require ( File ::build_path ( [ 'view' , 'view.php' ] ) );  //"redirige" vers la vue
 		}
-		public static function read ( $login )
+		public static function read ( $login,$p )
 		{
 			$p = ModelProduit ::select ( $login );
 			$object = 'produit';

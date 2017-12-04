@@ -33,6 +33,7 @@
 		 */
 		private $login;
 
+		private $prixTotal;
 		/**
 		 * ModelCommande constructor.
 		 * @param integer $i
@@ -71,6 +72,24 @@
 			return $this -> login;
 		}
 
+		/**
+		 * @return mixed
+		 */
+		public function getPrixTotal ()
+		{
+			return $this -> prixTotal;
+		}
+
+		/**
+		 * @param mixed $prixTotal
+		 */
+		public function setPrixTotal ($prixTotal)
+		{
+			$this -> prixTotal = $prixTotal;
+		}
+
+
+
 		public static function getUserOrder($login){
 			$sql = "SELECT * 
 					FROM Commande 
@@ -105,6 +124,20 @@
 			else{
 				return $tab[0];
 			}
+		}
+		public static function getSQLPT($id){
+			$sql="SELECT SUM(Produit.prix_p) as totalPrix
+				  FROM Commande
+				  JOIN ProduitCommande ON Commande.idC=ProduitCommande.idC
+				  JOIN Produit ON ProduitCommande.idP=Produit.id_p
+				  WHERE Commande.idC=:id;";
+			$req_prep = Model ::$pdo -> prepare ( $sql );
+			$match = [
+				"id"  => $id
+			];
+			$req_prep -> execute ( $match );
+			$row = $req_prep->fetch(PDO::FETCH_ASSOC);
+			return $row["totalPrix"];
 		}
 
 		/**
