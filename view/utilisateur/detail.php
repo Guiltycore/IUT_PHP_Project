@@ -5,8 +5,16 @@
 	 * Date: 24/11/17
 	 * Time: 10:38
 	 */
-	echo "<section class=\"mdl-layout__tab-panel is-active\" id=\"fixed-tab-1\">
+	if(isset($_GET["p"])){
+
+		echo "<section class=\"mdl-layout__tab-panel\" id=\"fixed-tab-1\">
       <div class=\"page-content\">";
+	}
+	else{
+
+		echo "<section class=\"mdl-layout__tab-panel is-active\" id=\"fixed-tab-1\">
+      <div class=\"page-content\">";
+	}
 	echo "
 	<h1>Information du compte:</h1>
 	<div>
@@ -29,9 +37,20 @@
             </section><section class=\"mdl-layout__tab-panel\" id=\"fixed-tab-2\">
       <div class=\"page-content\">";
 	require File::build_path([ "view" , "utilisateur" , "update.php"]);
-	echo "</div>
+
+	if(isset($_GET["p"])){
+
+		echo "</div>
+    </section><section class=\"mdl-layout__tab-panel is-active\" id=\"fixed-tab-3\">
+      <div class=\"page-content\">";
+	}
+	else{
+
+		echo "</div>
     </section><section class=\"mdl-layout__tab-panel\" id=\"fixed-tab-3\">
       <div class=\"page-content\">";
+	}
+
 	require File::build_path([ "view" , "commande" , "list.php"]);
 	echo "</div>
     </section><section class=\"mdl-layout__tab-panel\" id=\"fixed-tab-4\">
