@@ -11,6 +11,7 @@
       <th class=\"mdl-data-table__cell--non-numeric\">Numero de commande</th>
       <th>Date</th> 
       <th>Prix total</th>
+      <th>Page de la commande</th>
     </tr>
   </thead>
   <tbody>";
@@ -21,6 +22,14 @@
 		echo "<td>".$k->getIdC()."</td>";
 		echo "<td class=\"mdl-data-table__cell--non-numeric\">".$k->getDate()."</td>";
 		echo "<td>".$k->getPrixTotal()."</td>";
+		echo "<td><form method=\"get\" action=\"index.php\">
+					<input type='hidden' value='' name='action'>
+					<input type='hidden' value='' name='controller'> 
+					<input type='hidden' value='".$k->getIdC()."' name='id_p'> 
+					<input type=\"submit\" value=\"Voir commande\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>\n
+
+
+</form></td>";
 		echo "</tr>";
 	}
 	echo "</tbody></table>";

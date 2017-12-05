@@ -33,7 +33,16 @@
 		}
 		public static function read ( $login ,$p)
 		{
+			$l=$login;
 			//TODO
+			$tab = ModelProduitCommande::getProductListBO($login);
+			$listM=10;
+			$page=$p;
+			$maxPage=count ($tab)/$listM;
+			$tab_p= array ();
+			for($i=$listM*($p-1);$i<$listM*$p&&$i<count ($tab);++$i){
+				$tab_p[serialize ($tab[$i]->getIdP())]=$tab[$i]->getQuantity();
+			}
 			$object = 'commande';
 			$view = 'detail';
 			$pagetitle = 'Détail du produit.';

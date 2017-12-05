@@ -43,5 +43,30 @@
 			$tab=$req_prep->fetchAll ();
 			return !empty($tab);
 		}
+
+		/**
+		 * @return null
+		 */
+		public function getIdC ()
+		{
+			return $this -> idC;
+		}
+
+		/**
+		 * @return null
+		 */
+		public function getIdP ()
+		{
+			return $this -> idP;
+		}
+
+		/**
+		 * @return mixed
+		 */
+		public function getQuantity ()
+		{
+			return $this -> quantity;
+		}
+
 	}
 ?>
