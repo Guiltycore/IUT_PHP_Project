@@ -25,7 +25,7 @@
 		echo "<td>".$product->getPrix_p()."</td>";
 		echo "<td>".$value."</td>";
 		echo "<td><form method=\"get\" action=\"index.php\">
-					<input type='hidden' value='detail' name='action'>
+					<input type='hidden' value='read' name='action'>
 					<input type='hidden' value='commande' name='controller'> 
 					<input type='hidden' value='".$product->getID_p()."' name='id_p'> 
 					<input type=\"submit\" value=\"Voir produit\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>\n
@@ -39,10 +39,10 @@
 	echo "</tbody></table>";
 
 	if($page>1){
-		echo "<a href='index.php?controller=commande&action=read&p=1&idPC=".$l."' class=\"material-icons\">&#xE5DC;</a>";
+		echo "<a href='index.php?controller=commande&action=read&p=1&idC=".$l."' class=\"material-icons\">&#xE5DC;</a>";
 
-		echo "<a href='index.php?controller=commande&action=read&p=".($page-1)."&idPC=".$l."' class=\"material-icons\">&#xE5CB;</a>";
+		echo "<a href='index.php?controller=commande&action=read&p=".($page-1)."&idC=".$l."' class=\"material-icons\">&#xE5CB;</a>";
 	}
 	if($page<$maxPage){
-		echo "<a href='index.php?controller=commande&action=read&p=".($page+1)."&idPC=".$l."' class=\"material-icons\">&#xE5CC;</a><a href='index.php?controller=commande&action=read&p=".$maxPage."&idPC=".$l."' class=\"material-icons\">&#xE5DD;</a>";
+		echo "<a href='index.php?controller=commande&action=read&p=".($page+1)."&idC=".$l."' class=\"material-icons\">&#xE5CC;</a><a href='index.php?controller=commande&action=read&p=".$maxPage."&idC=".$l."' class=\"material-icons\">&#xE5DD;</a>";
 	}
