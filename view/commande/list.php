@@ -23,8 +23,8 @@
 		echo "<td class=\"mdl-data-table__cell--non-numeric\">".$k->getDate()."</td>";
 		echo "<td>".$k->getPrixTotal()."</td>";
 		echo "<td><form method=\"get\" action=\"index.php\">
-					<input type='hidden' value='' name='action'>
-					<input type='hidden' value='' name='controller'> 
+					<input type='hidden' value='detail' name='action'>
+					<input type='hidden' value='commande' name='controller'> 
 					<input type='hidden' value='".$k->getIdC()."' name='id_p'> 
 					<input type=\"submit\" value=\"Voir commande\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>\n
 

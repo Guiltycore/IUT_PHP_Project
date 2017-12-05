@@ -25,8 +25,8 @@
 		echo "<td>".$product->getPrix_p()."</td>";
 		echo "<td>".$value."</td>";
 		echo "<td><form method=\"get\" action=\"index.php\">
-					<input type='hidden' value='' name='action'>
-					<input type='hidden' value='' name='controller'> 
+					<input type='hidden' value='detail' name='action'>
+					<input type='hidden' value='commande' name='controller'> 
 					<input type='hidden' value='".$product->getID_p()."' name='id_p'> 
 					<input type=\"submit\" value=\"Voir produit\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>\n
 
