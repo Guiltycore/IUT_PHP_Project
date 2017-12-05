@@ -41,8 +41,11 @@
 						break;
 					case "read":
 						if(isset($_GET[$model_class::getPrimary()])){
-
-							$controller_class ::read ( $_GET[ $model_class::getPrimary ()] );
+							if(isset($_GET['p'])){
+								$controller_class ::read ($_GET[ $model_class::getPrimary ()],$_GET['p']);
+							}else{
+								$controller_class ::read ($_GET[ $model_class::getPrimary ()],1);
+							}
 						}
 						else{
 							if(isset($_GET['p'])){
