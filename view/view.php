@@ -71,7 +71,7 @@
 					<a class="mdl-navigation__link"href="index.php">Home</a>
 					<?php
 						if ( !isset( $_SESSION[ "login" ] ) ) {
-							echo "<a class=\"mdl-navigation__link\" href='index?action=update&controller=utilisateur'>Créer compte</a>";
+							echo "<a class=\"mdl-navigation__link\" href='index.php?action=update&controller=utilisateur'>Créer compte</a>";
 						}else{
 
 							echo "<a class=\"mdl-navigation__link\" href='index.php?action=read&controller=utilisateur'>Mon compte</a>\n
