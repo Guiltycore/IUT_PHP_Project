@@ -35,7 +35,7 @@
 					WHERE idC=:idC";
 			$req_prep = Model ::$pdo -> prepare ( $sql );
 			$match = [
-				"idc"  => $idc
+				"idC"  => $idc
 			];
 
 			$req_prep -> execute ( $match );
