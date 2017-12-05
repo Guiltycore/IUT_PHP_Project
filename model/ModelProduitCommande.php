@@ -31,7 +31,7 @@
 
 		public function getProductListBO($idc){
 			$sql = "SELECT * 
-					FROM Commande 
+					FROM ProduitCommande 
 					WHERE idC=:idC";
 			$req_prep = Model ::$pdo -> prepare ( $sql );
 			$match = [
