@@ -36,6 +36,7 @@
 			$l=$login;
 			//TODO
 			$tab = ModelProduitCommande::getProductListBO($login);
+			print_r($tab);
 			$listM=10;
 			$page=$p;
 			$maxPage=count ($tab)/$listM;
