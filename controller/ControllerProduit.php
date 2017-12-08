@@ -87,8 +87,6 @@
 			return $randomString;
 		}
 		public static function ajouterAuPanier($idp){
-
-
 			if (!isset($_COOKIE['panier'])) {
 				$tab = ["".$idp=>1];
 				setcookie("panier", serialize($tab), time()+3600);
@@ -100,9 +98,19 @@
 				setcookie("panier", serialize($tab), time()+3600);
 			}
 			self::readAll (1);
-
-
 		}
-		
+		public static function search($nomproduit){
+			$tab = ModelProduit ::search($nomproduit);     //appel au modèle pour gerer la BD
+			$page=$p;
+			$maxPage=count ($tab)/self::$listMax;
+			$tab_p= array ();
+			for($i=self::$listMax*($p-1);$i<self::$listMax*$p&&$i<count ($tab);++$i){
+				$tab_p[]=$tab[$i];
+			}
+			$object = 'produit';
+			$view = 'list';
+			$pagetitle = 'Liste des produits';
+			require ( File ::build_path ( [ 'view' , 'view.php' ] ) );  //"redirige" vers la vue	
+		}		
 	}
 ?>
