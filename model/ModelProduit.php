@@ -55,7 +55,7 @@ class ModelProduit extends Model {
 		//$sql = "SELECT * FROM Produit WHERE nom_p LIKE \'$nomproduit\' ";
 		$table_name = [ "name" => static ::$object ];
 		$class_name = 'Model' . ucfirst ( static ::$object );
-		$sql = "SELECT * FROM " . self::$object . " WHERE nom_p LIKE '" . $nomproduit."'";
+		$sql = "SELECT * FROM " . self::$object . " WHERE '" . $nomproduit."' LIKE nom_p";
 		print_r($sql);
 		$req_prep = Model ::$pdo -> prepare ( $sql );
 		$req_prep -> execute ();
