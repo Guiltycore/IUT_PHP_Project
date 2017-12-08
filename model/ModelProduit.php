@@ -59,7 +59,7 @@ class ModelProduit extends Model {
 		
 		$req_prep = Model ::$pdo -> prepare ( $sql );
 			$match = [
-				"nomproduit"  => "'%".$nomproduit."%'"
+				"nomproduit"  => "%".$nomproduit."%"
 			];
 			$req_prep -> execute ( $match );
 			print_r($sql);
