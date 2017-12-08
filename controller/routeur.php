@@ -108,6 +108,9 @@
 					case "panier":
 						$controller_class::panier();
 						break;
+					case "search":
+						$controller_class::search($_GET["search"]);
+						break;
 					default:
 						$controller_class ::err ();
 						break;
