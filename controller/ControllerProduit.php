@@ -101,6 +101,7 @@
 		}
 		public static function search($nomproduit){
 			$tab = ModelProduit ::search($nomproduit);     //appel au modèle pour gerer la BD
+			print_r($tab);
 			$page=$p;
 			$maxPage=count ($tab)/self::$listMax;
 			$tab_p= array ();
