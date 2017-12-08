@@ -56,6 +56,7 @@ class ModelProduit extends Model {
 		$table_name = [ "name" => static ::$object ];
 		$class_name = 'Model' . ucfirst ( static ::$object );
 		$sql = "SELECT * FROM " . $object . "WHERE nom_p LIKE " . $nomproduit;
+		print_r($sql);
 		$req_prep = Model ::$pdo -> prepare ( $sql );
 		$req_prep -> execute ();
 		$req_prep -> setFetchMode ( PDO::FETCH_CLASS , $class_name );
