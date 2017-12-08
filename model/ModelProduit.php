@@ -62,6 +62,7 @@ class ModelProduit extends Model {
 				"nomproduit"  => "'%".$nomproduit."%'"
 			];
 			$req_prep -> execute ( $match );
+			print_r($sql);
 			$req_prep -> setFetchMode ( PDO::FETCH_CLASS , "ModelProduit" );
 			$tab=$req_prep->fetchAll ();
 		return $req_prep -> fetchAll ();
