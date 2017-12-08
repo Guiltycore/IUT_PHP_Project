@@ -6,9 +6,11 @@
 	echo "<div class=\"mdl-grid\"><div class=\"mdl-cell mdl-cell--12-col\"><h1>Liste des produits</h1></div></div>";
 	echo "<div class=\"mdl-grid\">";
 	echo "	<div class=\"mdl-cell mdl-cell--12-col\">
-			<form action=\"index.php?action=search&controller=produit\" method=\"get\">
+			<form action=\"index.php\" method=\"get\">
+				<input type='hidden' name = 'action' value = 'search'/>
 				<input id=\"search\" type=\"text\" placeholder=\"Rechercher\" name=\"search\"/>
 				<input id=\"search-btn\" type=\"submit\" value=\"Rechercher\" />
+				<input type='hidden' name = 'controller' value = 'produit'/>
 			</form>
 		</div> ";
 
