@@ -55,10 +55,15 @@ class ModelProduit extends Model {
 		//$sql = "SELECT * FROM Produit WHERE nom_p LIKE \'$nomproduit\' ";
 		$table_name = [ "name" => static ::$object ];
 		$class_name = 'Model' . ucfirst ( static ::$object );
-		$sql = "SELECT * FROM " . self::$object . " WHERE nom_p LIKE '%" . $nomproduit."%'";
+		$sql = "SELECT * FROM " . self::$object . " WHERE nom_p LIKE '%:nomproduit%'";
+		
 		$req_prep = Model ::$pdo -> prepare ( $sql );
-		$req_prep -> execute ();
-		$req_prep -> setFetchMode ( PDO::FETCH_CLASS , $class_name );
+			$match = [
+				"nomproduit"  => $login
+			];
+			$req_prep -> execute ( $match );
+			$req_prep -> setFetchMode ( PDO::FETCH_CLASS , "ModelProduit" );
+			$tab=$req_prep->fetchAll ();
 		return $req_prep -> fetchAll ();
 	}
 	
