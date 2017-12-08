@@ -59,7 +59,7 @@ class ModelProduit extends Model {
 		
 		$req_prep = Model ::$pdo -> prepare ( $sql );
 			$match = [
-				"nomproduit"  => $login
+				"nomproduit"  => $nomproduit
 			];
 			$req_prep -> execute ( $match );
 			$req_prep -> setFetchMode ( PDO::FETCH_CLASS , "ModelProduit" );
