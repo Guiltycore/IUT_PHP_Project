@@ -51,11 +51,17 @@ class ModelProduit extends Model {
 		return $this -> pic_p;
 	}
 
-/*	public function search() {
-		$sql = "SELECT * FROM Produit WHERE nom_p LIKE \'$_GET([search])\' ";
-		
+	public function search($nomproduit) {
+		//$sql = "SELECT * FROM Produit WHERE nom_p LIKE \'$nomproduit\' ";
+		$table_name = [ "name" => static ::$object ];
+		$class_name = 'Model' . ucfirst ( static ::$object );
+		$sql = "SELECT * FROM " . $table_name[ "name" ] . "WHERE nom_p LIKE" . $nomproduit;
+		$req_prep = Model ::$pdo -> prepare ( $sql );
+		$req_prep -> execute ();
+		$req_prep -> setFetchMode ( PDO::FETCH_CLASS , $class_name );
+		return $req_prep -> fetchAll ();
 	}
-*/	
+	
 	
 
     // CONSTRUCTEUR Produit
