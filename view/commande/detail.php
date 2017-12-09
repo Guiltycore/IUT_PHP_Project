@@ -19,14 +19,14 @@
 		$product=unserialize ($key);
 		echo "<tr>";
 
-		echo "<td><img src='"
+		echo "<td class=\"mdl-data-table__cell--non-numeric\"><img src='"
 			.$product->getPicP()
 			."' alt='Product Picture' height=\"80\" width=\"80\">".$product -> getNom_p ()."</td>";
 		echo "<td>".$product->getPrix_p()."</td>";
 		echo "<td>".$value."</td>";
-		echo "<td><form method=\"get\" action=\"index.php\">
+		echo "<td class=\"mdl-data-table__cell--non-numeric\"><form method=\"get\" action=\"index.php\">
 					<input type='hidden' value='read' name='action'>
-					<input type='hidden' value='commande' name='controller'> 
+					<input type='hidden' value='produit' name='controller'> 
 					<input type='hidden' value='".$product->getID_p()."' name='id_p'> 
 					<input type=\"submit\" value=\"Voir produit\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>\n
 

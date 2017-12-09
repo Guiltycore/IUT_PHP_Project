@@ -29,7 +29,7 @@
 		}
 
 
-		public function getProductListBO($idc){
+		public static function getProductListBO($idc){
 			$sql = "SELECT * 
 					FROM ProduitCommande 
 					WHERE idC=:idC";
@@ -41,7 +41,7 @@
 			$req_prep -> execute ( $match );
 			$req_prep -> setFetchMode ( PDO::FETCH_CLASS , "ModelProduitCommande" );
 			$tab=$req_prep->fetchAll ();
-			return !empty($tab);
+			return $tab;
 		}
 
 		/**
