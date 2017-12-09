@@ -37,42 +37,56 @@
 		}
 		public static function delete ( $login )
 		{
-			ModelProduit ::delete ( $login );
-			$tab_p = ModelProduit ::selectAll ();
-			$object = 'produit';
-			$view = 'delete';
-			$pagetitle = 'Produit supprimé';
-			require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
+			if(Session::is_admin ()){
+
+				ModelProduit ::delete ( $login );
+				$tab_p = ModelProduit ::selectAll ();
+				$object = 'produit';
+				$view = 'delete';
+				$pagetitle = 'Produit supprimé';
+				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
+			}
 		}
 		public static function update ( $imma )
 		{
-			$object = 'produit';
-			$view = 'update';
-			$pagetitle = 'Produit update';
-			require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
+			if(Session::is_admin ()){
+
+				$object = 'produit';
+				$view = 'update';
+				$pagetitle = 'Produit update';
+				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
+			}
+
+
 		}
 		public static function updated ( $data )
 		{
-			$uploadfile = './img/'.basename($_FILES['pic_p']['name']);
-			if (isset($_FILES['pic_p'])&&move_uploaded_file($_FILES['pic_p']['tmp_name'], $uploadfile)) {
-				$data['pic_p']=$uploadfile;
+			if(Session::is_admin ()){
+
+				if (isset($_FILES['pic_p'])&&move_uploaded_file($_FILES['pic_p']['tmp_name'], './img/'.basename($_FILES['pic_p']['name']))) {
+					$data['pic_p']=basename($_FILES['pic_p']['name']);
+				}
+				ModelProduit ::update ( $data );
 			}
-			ModelProduit ::update ( $data );
 			self::readAll (1);
 		}
 		public static function created ( $data )
 		{
-			$uploadfile = './img/'.basename($_FILES['pic_p']['name']);
-			if (isset($_FILES['pic_p'])&&move_uploaded_file($_FILES['pic_p']['tmp_name'], $uploadfile)) {
-				$data['pic_p']=$uploadfile;
+			if(Session::is_admin ()) {
+
+				if ( isset( $_FILES[ 'pic_p' ] ) && move_uploaded_file ( $_FILES[ 'pic_p' ][ 'tmp_name' ] , './img/' . basename ( $_FILES[ 'pic_p' ][ 'name' ] ) ) ) {
+					$data[ 'pic_p' ] = basename ( $_FILES[ 'pic_p' ][ 'name' ] );
+				}
+				ModelProduit ::save ( $data );
 			}
-			ModelProduit ::save ( $data );
 			self::readAll (1);
 
 		}
 		public static function generate($size){
-			for($i=0;$i<$size;++$i){
-				ModelProduit ::save (["nom_p"=>self::generateRandomString (30),"description_p"=>' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque scelerisque neque lacus, pellentesque aliquet eros fringilla quis. Aliquam id massa ligula. Sed ultricies nisl sed ultrices vulputate. Sed sodales vel tortor non ultrices. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce pretium vitae dolor malesuada mattis. Fusce non blandit diam, non imperdiet nunc. ',"prix_p"=>rand (0,100)]);
+			if(Session::is_admin ()){
+				for($i=0;$i<$size;++$i){
+					ModelProduit ::save (["nom_p"=>self::generateRandomString (30),"description_p"=>' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque scelerisque neque lacus, pellentesque aliquet eros fringilla quis. Aliquam id massa ligula. Sed ultricies nisl sed ultrices vulputate. Sed sodales vel tortor non ultrices. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce pretium vitae dolor malesuada mattis. Fusce non blandit diam, non imperdiet nunc. ',"prix_p"=>rand (0,100)]);
+				}
 			}
 			self::readAll (1);
 
@@ -100,8 +114,6 @@
 				setcookie("panier", serialize($tab), time()+3600);
 			}
 			self::readAll (1);
-
-
 		}
 		
 	}

@@ -26,7 +26,14 @@
 				.'</tr>';
 		}
 		echo "</tbody></table>";
-		echo "<input type=\"submit\" value=\"Commander\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"></form>";
+
+		echo "<input type=\"submit\" name=\"createorupdate\" value=\"Mettre à jour le panier\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"></form>";
+		if(isset($_SESSION["login"])){
+			echo "<input type=\"submit\" name=\"createorupdate\" value=\"Commander\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"></form>";
+		}
+		echo "<form method=\"post\" action=\"index.php?action=delete&controller=commande\">";
+		echo "<input type='submit' value='Réinitialiser le panier' class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\">";
+		echo "</form>";
 	}
 	else {
 		echo "Votre panier est vide !";

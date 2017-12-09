@@ -16,23 +16,26 @@
 		protected static $object;
 		public static function readAll ($p)
 		{
+			if(Session::is_admin ()){
 
-			$tab = ModelUtilisateur ::selectAll ();     //appel au modèle pour gerer la BD
+				$tab = ModelUtilisateur ::selectAll ();     //appel au modèle pour gerer la BD
 
-			$page=$p;
-			$maxPage=count ($tab)/self::$listMax;
-			$tab_p= array ();
-			for($i=self::$listMax*($p-1) ;$i<self::$listMax*$p&&$i<count ($tab);++$i){
-				$tab_p[]=$tab[$i];
+				$page=$p;
+				$maxPage=count ($tab)/self::$listMax;
+				$tab_p= array ();
+				for($i=self::$listMax*($p-1) ;$i<self::$listMax*$p&&$i<count ($tab);++$i){
+					$tab_p[]=$tab[$i];
+				}
+				$object = 'utilisateur';
+				$view = 'list';
+				$pagetitle = 'Liste des utilisateurs';
+				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );  //"redirige" vers la vue
 			}
-			$object = 'utilisateur';
-			$view = 'list';
-			$pagetitle = 'Liste des utilisateurs';
-			require ( File ::build_path ( [ 'view' , 'view.php' ] ) );  //"redirige" vers la vue
+
 		}
 		public static function read ( $login,$p )
 		{
-			if($login===NULL&&!empty( $_SESSION[ 'login' ] )){
+			if($login===NULL&&isset( $_SESSION[ 'login' ] )){
 				$u = ModelUtilisateur ::select ( $_SESSION[ 'login' ] );
 				$object = 'utilisateur';
 				$view = 'detail';

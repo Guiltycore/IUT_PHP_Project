@@ -51,8 +51,8 @@
 		}
 		public static function delete ( $login )
 		{
-			self::readAll (1);
-
+			setcookie("panier","",time()-1);
+			self::update ();
 		}
 		public static function update ( $imma )
 		{
@@ -70,18 +70,32 @@
 		}
 		public static function updated ( $data )
 		{
-			self::readAll (1);
+			unset($data["createorupdate"]);
+			foreach ($data as $k=>$v){
+				if($v<1){
+					unset($data[$k]);
+				}
+			}
+			setcookie("panier",serialize ($data),time()+3600);
+			ControllerProduit::readAll(1);
+
 		}
 		public static function created ( $data )
 		{
-			if(isset($_SESSION["login"])){
-				ModelCommande::save (["date"=> date("Y-m-d",time()),"login"=>$_SESSION["login"]]);
-				$c=ModelCommande::getUncompleteOrder($_SESSION["login"]);
-				foreach($data as $k=>$v){
-					ModelProduitCommande::save (["idC"=>($c->getIdC()),"idP"=>$k,"quantity"=>$v]);
-				}
-				setcookie("panier","",time()-1);
-				ControllerProduit::readAll(1);
+			if(isset($data["createorupdate"])&&$data["createorupdate"]=="Mettre à jour le panier"){
+				self::updated ($data);
+			}
+			else if(isset($_SESSION["login"])){
+
+
+					ModelCommande::save (["date"=> date("Y-m-d",time()),"login"=>$_SESSION["login"]]);
+					$c=ModelCommande::getUncompleteOrder($_SESSION["login"]);
+					foreach($data as $k=>$v){
+						ModelProduitCommande::save (["idC"=>($c->getIdC()),"idP"=>$k,"quantity"=>$v]);
+					}
+					setcookie("panier","",time()-1);
+					ControllerProduit::readAll(1);
+
 			}else{
 				ControllerUtilisateur::connect ();
 			}
