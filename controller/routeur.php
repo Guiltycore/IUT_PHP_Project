@@ -109,7 +109,13 @@
 						$controller_class::panier();
 						break;
 					case "search":
-						$controller_class::search($_GET["search"]);
+						if(isset($_GET["p"])){
+							$controller_class::search($_GET["search"],$_GET["p"]);
+
+						}else{
+							$controller_class::search($_GET["search"],1);
+
+						}
 						break;
 					default:
 						$controller_class ::err ();
