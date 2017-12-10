@@ -121,7 +121,7 @@
 							$controller_class::panelAdmin($_GET["p"]);
 
 						}else{
-							$controller_class::search(1);
+							$controller_class::panelAdmin(1);
 						}
 						break;
 					default:
