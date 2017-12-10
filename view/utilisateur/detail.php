@@ -55,7 +55,8 @@
 	echo "</div>
     </section><section class=\"mdl-layout__tab-panel\" id=\"fixed-tab-4\">
       <div class=\"page-content\">";
-	echo "<form method=\"post\" action=\"index.php\">
+	echo "<form method=\"get\" action=\"index.php\">
+		<input type='hidden' name='login' value='".$u->getLogin()."'>
 		<input type=\"hidden\" name=\"action\" value=\"delete\">
 		<input type=\"hidden\" name=\"controller\" value=\"utilisateur\">
 			<input type=\"submit\" value=\"Supprimer\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>\n

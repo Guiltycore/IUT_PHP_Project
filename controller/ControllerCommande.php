@@ -16,8 +16,8 @@
 			if(isset($_SESSION["login"])){
 				$tab=ModelCommande::getUserOrder($_SESSION["login"]);
 
-				$page=$p;
-				$maxPage=count ($tab)/self::$listMax;
+				$page=$p>0?$p:1;
+				$maxPage=ceil(count ($tab)/self::$listMax);
 				$tab_p= array ();
 				for($i=self::$listMax*($p-1);$i<self::$listMax*$p&&$i<count ($tab);++$i){
 					$tab_p[]=$tab[$i];
@@ -37,8 +37,8 @@
 			//TODO
 			$tab = ModelProduitCommande::getProductListBO($login);
 			$listM=10;
-			$page=$p;
-			$maxPage=count ($tab)/$listM;
+			$page=$p>0?$p:1;
+			$maxPage=ceil(count ($tab)/self::$listMax);
 			$tab_p= array ();
 			for($i=$listM*($p-1);$i<$listM*$p&&$i<count ($tab);++$i){
 				$tab_p[serialize (ModelProduit::select($tab[$i]->getIdP()))]=$tab[$i]->getQuantity();

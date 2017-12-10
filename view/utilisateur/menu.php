@@ -5,15 +5,16 @@
 	 * Date: 04/12/2017
 	 * Time: 21:41
 	 */
-	if(isset($_SESSION["login"])&&isset($_SESSION["action"])&&$_SESSION["action"]="detail"){
+
+	if(isset($_SESSION["login"])&&$view=="detail"){
 		if(isset($_GET["p"])){
 
 			echo "
 						<!-- Tabs -->
 						<div class=\"mdl-layout__tab-bar mdl-js-ripple-effect\">
-							<a href=\"#fixed-tab-1\" class=\"mdl-layout__tab\">Mes informations</a>
+							<a href=\"#fixed-tab-1\" class=\"mdl-layout__tab\">Informations</a>
 							<a href=\"#fixed-tab-2\" class=\"mdl-layout__tab\">Modifier</a>
-							<a href=\"#fixed-tab-3\" class=\"mdl-layout__tab  is-active\">Mes commandes</a>
+							<a href=\"#fixed-tab-3\" class=\"mdl-layout__tab  is-active\">Commandes</a>
 							<a href=\"#fixed-tab-4\" class=\"mdl-layout__tab\">Supprimer</a>
 						</div>";
 
@@ -21,14 +22,14 @@
 			echo "
 						<!-- Tabs -->
 						<div class=\"mdl-layout__tab-bar mdl-js-ripple-effect\">
-							<a href=\"#fixed-tab-1\" class=\"mdl-layout__tab is-active\">Mes informations</a>
+							<a href=\"#fixed-tab-1\" class=\"mdl-layout__tab is-active\">Informations</a>
 							<a href=\"#fixed-tab-2\" class=\"mdl-layout__tab\">Modifier</a>
-							<a href=\"#fixed-tab-3\" class=\"mdl-layout__tab\">Mes commandes</a>
+							<a href=\"#fixed-tab-3\" class=\"mdl-layout__tab\">Commandes</a>
 							<a href=\"#fixed-tab-4\" class=\"mdl-layout__tab\">Supprimer</a>
 						</div>";
 		}
 
-	}else if(isset($_GET["action"])&&$_GET["action"]=="adminPanel"){
+	}else if(isset($_SESSION["login"])&&$view=="paneladmin"){
 		if(isset($_GET["p"])){
 
 			echo "

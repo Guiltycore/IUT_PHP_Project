@@ -75,6 +75,8 @@
 							echo "<a class=\"mdl-navigation__link\" href='index.php?action=adminPanel&controller=utilisateur'>Panel Admin</a>";
 						}
 						if ( !isset( $_SESSION[ "login" ] ) ) {
+							echo "<a class=\"mdl-navigation__link\" href='index.php?action=connect&controller=utilisateur'>Se connecter</a>";
+
 							echo "<a class=\"mdl-navigation__link\" href='index.php?action=update&controller=utilisateur'>Créer compte</a>";
 						}else{
 

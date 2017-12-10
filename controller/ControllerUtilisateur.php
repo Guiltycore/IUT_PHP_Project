@@ -20,8 +20,8 @@
 
 				$tab = ModelUtilisateur ::selectAll ();     //appel au modèle pour gerer la BD
 
-				$page=$p;
-				$maxPage=count ($tab)/self::$listMax;
+				$page=$p>0?$p:1;
+				$maxPage=ceil(count ($tab)/self::$listMax);
 				$tab_p= array ();
 				for($i=self::$listMax*($p-1) ;$i<self::$listMax*$p&&$i<count ($tab);++$i){
 					$tab_p[]=$tab[$i];
@@ -43,8 +43,8 @@
 
 				$tab=ModelCommande::getUserOrder($_SESSION["login"]);
 
-				$page=$p;
-				$maxPage=count ($tab)/self::$listMax;
+				$page=$p>0?$p:1;
+				$maxPage=ceil(count ($tab)/self::$listMax);
 				$tab_p= array ();
 				for($i=self::$listMax*($p-1);$i<self::$listMax*$p&&$i<count ($tab);++$i){
 					$tab[$i]->setPrixTotal($tab[$i]->getSQLPT($tab[$i]->getIdC()));
@@ -56,10 +56,10 @@
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
 			}
 			else if(Session::is_user ($login) ||Session::is_admin ()) {
-				$tab=ModelCommande::getUserOrder($_SESSION["login"]);
+				$tab=ModelCommande::getUserOrder($_GET["login"]);
 
-				$page=$p;
-				$maxPage=count ($tab)/self::$listMax;
+				$page=$p>0?$p:1;
+				$maxPage=ceil(count ($tab)/self::$listMax);
 				$tab_p= array ();
 				for($i=self::$listMax*($p-1);$i<self::$listMax*$p&&$i<count ($tab);++$i){
 					$tab[$i]->setPrixTotal($tab[$i]->getSQLPT($tab[$i]->getIdC()));
@@ -201,8 +201,8 @@
 					$u=NULL;
 					$tab = ModelUtilisateur ::selectAll ();     //appel au modèle pour gerer la BD
 
-					$page=$p;
-					$maxPage=count ($tab)/self::$listMax;
+					$page=$p>0?$p:1;
+					$maxPage=ceil(count ($tab)/self::$listMax);
 					$tab_p= array ();
 					for($i=self::$listMax*($p-1) ;$i<self::$listMax*$p&&$i<count ($tab);++$i){
 						$tab_p[]=$tab[$i];

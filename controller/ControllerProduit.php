@@ -16,9 +16,10 @@
 		{
 
 			$tab = ModelProduit ::selectAll ();     //appel au modèle pour gerer la BD
-			$page=$p;
-			$act="readall";
-			$maxPage=count ($tab)/self::$listMax;
+
+			$page=$p>0?$p:1;
+			$act="readAll";
+			$maxPage=ceil(count ($tab)/self::$listMax);
 			$tab_p= array ();
 			for($i=self::$listMax*($p-1);$i<self::$listMax*$p&&$i<count ($tab);++$i){
 				$tab_p[]=$tab[$i];
@@ -119,8 +120,8 @@
 		public static function search($nomproduit,$p){
 			$tab = ModelProduit ::search($nomproduit);     //appel au modèle pour gerer la BD
 			$act="search";
-			$page=$p;
-			$maxPage=count ($tab)/self::$listMax;
+			$page=$p>0?$p:1;
+			$maxPage=ceil(count ($tab)/self::$listMax);
 			$tab_p= array ();
 			for($i=self::$listMax*($p-1);$i<self::$listMax*$p&&$i<count ($tab);++$i){
 				$tab_p[]=$tab[$i];
