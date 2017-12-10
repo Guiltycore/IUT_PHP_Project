@@ -13,7 +13,7 @@
 				<div class="mdl-layout__header-row">
 					<!-- Title -->
 					<span class="mdl-layout-title"><a href="http://php.yvesdaniel.fr/index.php">
-					<img border="0" alt="logo" src="http://php.yvesdaniel.fr/img/logo_eGoodies.png" width="100" height="100"></span>
+					<img border="0" alt="logo" src="http://php.yvesdaniel.fr/img/logo_eGoodies.png" width="100" height="100"></a></span>
 					<!-- Add spacer, to align navigation to the right -->
 					<div class="mdl-layout-spacer"></div>
 					<!-- Navigation. We hide it in small screens. -->
