@@ -70,6 +70,7 @@
 		}
 		public static function updated ( $data )
 		{
+
 			unset($data["createorupdate"]);
 			foreach ($data as $k=>$v){
 				if($v<1){
@@ -86,9 +87,10 @@
 				self::updated ($data);
 			}
 			else if(isset($_SESSION["login"])){
+				unset($data["createorupdate"]);
 
 
-					ModelCommande::save (["date"=> date("Y-m-d",time()),"login"=>$_SESSION["login"]]);
+				ModelCommande::save (["date"=> date("Y-m-d",time()),"login"=>$_SESSION["login"]]);
 					$c=ModelCommande::getUncompleteOrder($_SESSION["login"]);
 					foreach($data as $k=>$v){
 						ModelProduitCommande::save (["idC"=>($c->getIdC()),"idP"=>$k,"quantity"=>$v]);
