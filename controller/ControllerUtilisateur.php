@@ -12,7 +12,7 @@
 	class ControllerUtilisateur
 	{
 
-		protected static $listMax=4;
+		protected static $listMax=10;
 		protected static $object;
 		public static function readAll ($p)
 		{
@@ -56,7 +56,7 @@
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
 			}
 			else if(Session::is_user ($login) ||Session::is_admin ()) {
-				$tab=ModelCommande::getUserOrder($_GET["login"]);
+				$tab=ModelCommande::getUserOrder($login);
 
 				$page=$p>0?$p:1;
 				$maxPage=ceil(count ($tab)/self::$listMax);
@@ -118,7 +118,7 @@
 				$data[ "mdp" ] = Security ::chiffrer ( $data[ "mdp" ] );
 				ModelUtilisateur ::update ( $data );
 			}
-			self::read (NULL,1);
+			self::read ($data["login"],1);
 		}
 		public static function created ( $data )
 		{
@@ -160,7 +160,7 @@
 					ControllerProduit ::readAll (1);
 				}
 				else {
-					echo "Mauvais mot de passe.";
+					$message= "Mauvais mot de passe.";
 					$object = 'utilisateur';
 					$view = 'connect';
 					$pagetitle = 'Connection à la page utilisateur';
@@ -191,7 +191,7 @@
 				ControllerProduit::readAll (1);
 			}
 			else{
-				echo "Wrong login/nonce";
+				$message= "Wrong login/nonce";
 				ControllerProduit::readAll (1);
 			}
 		}

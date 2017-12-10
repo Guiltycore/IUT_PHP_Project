@@ -8,16 +8,17 @@
 		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.amber-pink.min.css" />		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 	</head>
 	<body>
+
 		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs    ">
 			<header class="mdl-layout__header">
 				<div class="mdl-layout__header-row">
 					<!-- Title -->
-					<span class="mdl-layout-title"><a href="http://php.yvesdaniel.fr/index.php">
-					<img border="0" alt="logo" src="http://php.yvesdaniel.fr/img/logo_eGoodies.png" width="100" height="100"></a></span>
+					<span class="mdl-layout-title"><a href="./index.php">
+					<img  alt="logo" src="http://php.yvesdaniel.fr/img/logo_eGoodies.png" width="100" height="100"></a></span>
 					<!-- Add spacer, to align navigation to the right -->
 					<div class="mdl-layout-spacer"></div>
 					<!-- Navigation. We hide it in small screens. -->
-					<nav align="right" class="mdl-navigation mdl-layout--large-screen-only">
+					<nav class="mdl-navigation mdl-layout--large-screen-only">
 
 
 
@@ -28,7 +29,7 @@
 			
 			<span class=\"mdl-textfield mdl-js-textfield\">
 
-			<label for='login_id ' class=\"mdl-textfield__label\" >Login</label>\n
+			<label for='login_id' class=\"mdl-textfield__label\" >Login</label>\n
 			<input type='text'  name='login' id='login_id' class=\"mdl-textfield__input\" required/>\n
 			</span>
 			<span class=\"mdl-textfield mdl-js-textfield\">
@@ -60,6 +61,7 @@
 
 					</nav>
 
+
 				</div>
 				<?php
 					$fp = File ::build_path ( [ "view" , $object , "menu.php" ] );
@@ -90,6 +92,9 @@
 				<div class="page-content"><!-- Your content goes here -->
 
 					<?php
+						if(isset($message)){
+							echo "<p>".$message."</p>";
+						}
 						$filepath = File ::build_path ( [ "view" , $object , "$view.php" ] );
 						require $filepath;
 					?>

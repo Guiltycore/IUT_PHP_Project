@@ -5,7 +5,6 @@
 	 * Date: 29/09/17
 	 * Time: 10:24
 	 */
-
 	session_start();
 	require_once File ::build_path ( [ 'controller' , 'ControllerUtilisateur.php' ] );
 	require_once File ::build_path ( [ 'controller' , 'ControllerProduit.php' ] );
@@ -68,6 +67,7 @@
 						$controller_class ::created ( $data );
 						break;
 					case "delete":
+
 						$controller_class ::delete ( $_GET[ $model_class::getPrimary ()] );
 						break;
 					case "update":

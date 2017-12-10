@@ -22,7 +22,7 @@
 		echo "<td class=\"mdl-data-table__cell--non-numeric\"><img src='"
 			.$product->getPicP()
 			."' alt='Product Picture' height=\"80\" width=\"80\">".$product -> getNom_p ()."</td>";
-		echo "<td>".$product->getPrix_p()."</td>";
+		echo "<td>".$product->getPrix_p()."€</td>";
 		echo "<td>".$value."</td>";
 		echo "<td class=\"mdl-data-table__cell--non-numeric\"><form method=\"get\" action=\"index.php\">
 					<input type='hidden' value='read' name='action'>

@@ -18,5 +18,30 @@ table {
     margin-left:auto;
     margin-right:auto;
 }
+.pic_p_id{
+    width:800px;
+}
+.c{
 
-
+    margin-left: auto;
+    margin-right: auto;
+}
+body{
+    background: url("../img/background.jpg");
+}
+.listProduit h1{
+    width: 45vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+main{
+    padding-bottom: 1vh;
+    padding-top:1vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    background-color: white;
+    width:40vw;
+    height: 10vh;
+}

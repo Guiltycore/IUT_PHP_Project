@@ -10,7 +10,7 @@
 
 	class ControllerCommande
 	{
-		protected static $listMax=4;
+		protected static $listMax=10;
 		public static function readAll ($p)
 		{
 			if(isset($_SESSION["login"])){
@@ -50,8 +50,9 @@
 		}
 		public static function delete ( $login )
 		{
+			$message="Panier supprimé";
 			setcookie("panier","",time()-1);
-			self::update ();
+			self::update (NULL);
 		}
 		public static function update ( $imma )
 		{
