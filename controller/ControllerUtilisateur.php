@@ -94,13 +94,13 @@
 		public static function update ( $imma )
 		{
 			$u=NULL;
-			if(is_null ($imma)){
+			if((is_null ($imma)&&!isset($_SESSION["login"]))||Session::is_admin ()){
 				$object = 'utilisateur';
 				$view = 'update';
 				$pagetitle="User creation";
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
 
-			}else if(!Session::is_user ($imma)||!Session::is_admin ()){
+			}else if(!Session::is_user ($imma)&&!Session::is_admin ()){
 				ControllerProduit::readAll (1);
 			}
 			else{
@@ -192,6 +192,27 @@
 			}
 			else{
 				echo "Wrong login/nonce";
+				ControllerProduit::readAll (1);
+			}
+		}
+		public static function adminPanel($p){
+			if(Session::is_admin ()){
+				if(Session::is_admin ()){
+					$u=NULL;
+					$tab = ModelUtilisateur ::selectAll ();     //appel au modèle pour gerer la BD
+
+					$page=$p;
+					$maxPage=count ($tab)/self::$listMax;
+					$tab_p= array ();
+					for($i=self::$listMax*($p-1) ;$i<self::$listMax*$p&&$i<count ($tab);++$i){
+						$tab_p[]=$tab[$i];
+					}
+					$object = 'utilisateur';
+					$view = 'paneladmin';
+					$pagetitle = 'Panel Admin';
+					require ( File ::build_path ( [ 'view' , 'view.php' ] ) );  //"redirige" vers la vue
+				}
+			}else{
 				ControllerProduit::readAll (1);
 			}
 		}

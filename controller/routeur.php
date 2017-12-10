@@ -114,7 +114,14 @@
 
 						}else{
 							$controller_class::search($_GET["search"],1);
+						}
+						break;
+					case "panelAdmin":
+						if(isset($_GET["p"])){
+							$controller_class::panelAdmin($_GET["p"]);
 
+						}else{
+							$controller_class::search(1);
 						}
 						break;
 					default:

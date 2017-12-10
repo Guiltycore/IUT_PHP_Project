@@ -70,6 +70,9 @@
 				<nav class="mdl-navigation">
 					<a class="mdl-navigation__link"href="index.php">Home</a>
 					<?php
+						if(Session::is_admin ()){
+							echo "<a class=\"mdl-navigation__link\" href='index.php?action=adminPanel&controller=utilisateur'>Panel Admin</a>";
+						}
 						if ( !isset( $_SESSION[ "login" ] ) ) {
 							echo "<a class=\"mdl-navigation__link\" href='index.php?action=update&controller=utilisateur'>Créer compte</a>";
 						}else{

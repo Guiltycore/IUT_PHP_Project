@@ -73,7 +73,6 @@
 			$req_prep -> execute ( $match );
 			$req_prep -> setFetchMode ( PDO::FETCH_CLASS , "ModelProduit" );
 			$tab = $req_prep -> fetchAll ();
-			print_r ($sql);
 			return$tab;
 
 		}
