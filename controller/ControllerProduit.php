@@ -15,6 +15,7 @@
 		public static function readAll ($p)
 		{
 
+
 			$tab = ModelProduit ::selectAll ();     //appel au modèle pour gerer la BD
 
 			$page=$p>0?$p:1;
@@ -24,6 +25,27 @@
 			for($i=self::$listMax*($p-1);$i<self::$listMax*$p&&$i<count ($tab);++$i){
 				$tab_p[]=$tab[$i];
 			}
+			$style="<style>
+
+			.demo-card-wide.mdl-card {
+                width: 30vw;
+
+                margin-left: auto;
+                margin-right: auto;
+			}
+     ";
+			foreach ($tab_p as $p){
+				$style.="
+			.demo-card-wide > .image".$p -> getID_p ()." {
+                height: 7vh;
+                background: url(\"".$p->getPicP()."\") center / cover;
+                
+	            background-repeat: no-repeat;
+                background-size: 3vw 6vh;
+                }\n";
+			}
+
+			$style.="</style>";
 			$object = 'produit';
 			$view = 'list';
 			$pagetitle = 'Liste des produits';
@@ -127,6 +149,28 @@
 			for($i=self::$listMax*($p-1);$i<self::$listMax*$p&&$i<count ($tab);++$i){
 				$tab_p[]=$tab[$i];
 			}
+
+			$style="<style>
+
+			.demo-card-wide.mdl-card {
+                width: 30vw;
+
+                margin-left: auto;
+                margin-right: auto;
+			}
+     ";
+			foreach ($tab_p as $p){
+				$style.="
+			.demo-card-wide > .image".$p -> getID_p ()." {
+                height: 7vh;
+                background: url(\"".$p->getPicP()."\") center / cover;
+                
+	            background-repeat: no-repeat;
+                background-size: 3vw 6vh;
+                }\n";
+			}
+
+			$style.="</style>";
 			$object = 'produit';
 			$view = 'list';
 			$pagetitle = 'Liste des produits';

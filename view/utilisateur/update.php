@@ -4,7 +4,7 @@
 
 		echo "<fieldset>
 	<legend>Mon formulaire :</legend>
-	<p>
+	
 	
 		<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 			<input class=\"mdl-textfield__input\" type=\"text\" placeholder=\"Ex : Kerrigan\" name=\"nom\" id=\"nom_id\" value=\"" . $u -> getNom () . "\" required/>
@@ -36,13 +36,13 @@
 		
 		<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 
-		<input class=\"mdl-textfield__input\" type=\"adresse\" placeholder=\"Ex : 3 rue Shakura\" name=\"adresse\" id=\"adr_id\" value=\"" . $u -> getAdresse () . "\" required/>		
+		<input class=\"mdl-textfield__input\" type=\"text\" placeholder=\"Ex : 3 rue Shakura\" name=\"adresse\" id=\"adr_id\" value=\"" . $u -> getAdresse () . "\" required/>		
 			<label class=\"mdl-textfield__label\" for=\"adr_id\">Adresse :</label>
         </div>
         
 		
 		<input type=\"hidden\" name=\"login\" value=\"".$u->getLogin()."\">
-	</p>
+	
 	<p>
 		<input type=\"submit\" value=\"Envoyer\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>
 	</p>
@@ -54,11 +54,11 @@
 		echo "
 <fieldset>
 	<legend>Mon formulaire :</legend>
-	<p>
+	
 		<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 
-		<label class=\"mdl-textfield__label\" for=\"login_id\">Login</label> :
-		<input class=\"mdl-textfield__input\" type=\"text\" placeholder=\"Ex : Zeratul\" name=\"login\" id=\"login_id\" required/>
+		<label class=\"mdl-textfield__label\" for=\"login_idcr\">Login</label> :
+		<input class=\"mdl-textfield__input\" type=\"text\" placeholder=\"Ex : Zeratul\" name=\"login\" id=\"login_idcr\" required/>
 		</div>
 				<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 
@@ -72,8 +72,8 @@
 		</div>
 				<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 
-		<label class=\"mdl-textfield__label\" for=\"mdp_id\">Mot de passe</label> :
-		<input class=\"mdl-textfield__input\" type=\"password\" placeholder=\"Ex : EnTaroTassadar\" name=\"mdp\" id=\"mdp_id\" required/>
+		<label class=\"mdl-textfield__label\" for=\"mdp_idcr\">Mot de passe</label> :
+		<input class=\"mdl-textfield__input\" type=\"password\" placeholder=\"Ex : EnTaroTassadar\" name=\"mdp\" id=\"mdp_idcr\" required/>
 		</div>
 				<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 
@@ -83,14 +83,14 @@
 				<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 
 		<label class=\"mdl-textfield__label\" for=\"adr_id\">Adresse</label> :
-		<input class=\"mdl-textfield__input\"type=\"adresse\" placeholder=\"Ex :3 rue Adun\" name=\"adresse\" id=\"adr_id\" required/>
+		<input class=\"mdl-textfield__input\" type=\"text\" placeholder=\"Ex :3 rue Adun\" name=\"adresse\" id=\"adr_id\" required/>
 		</div>
 				<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 
 		<label class=\"mdl-textfield__label\" for=\"mail_id\">Mail</label>
 		<input class=\"mdl-textfield__input\" name=\"mail\" id=\"mail_id\" type=\"email\" required>
 		</div>
-	</p>
+	
 	<p>
 		<input type=\"submit\" value=\"Envoyer\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>
 	</p>

@@ -7,19 +7,19 @@
 	 */
 	if(isset($_GET["p"])){
 
-		echo "<section class=\"mdl-layout__tab-panel\" id=\"fixed-tab-1\">
-      <div class=\"page-content\">";
+		echo "<section class=\"mdl-layout__tab-panel\" id=\"fixed-tab-1\">";
 	}
 	else{
 
-		echo "<section class=\"mdl-layout__tab-panel is-active\" id=\"fixed-tab-1\">
-      <div class=\"page-content\">";
+		echo "<section class=\"mdl-layout__tab-panel is-active\" id=\"fixed-tab-1\">";
 	}
-
+	echo " <div class=\"page-content\">";
 	require File::build_path([ "view" , "produit" , "update.php"]);
 
-	echo"</div></div>
-            </section><section class=\"mdl-layout__tab-panel\" id=\"fixed-tab-2\">
+	echo"
+</div>
+            </section>
+            <section class=\"mdl-layout__tab-panel\" id=\"fixed-tab-2\">
       <div class=\"page-content\">";
 	require File::build_path([ "view" , "utilisateur" , "update.php"]);
 

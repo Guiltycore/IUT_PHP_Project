@@ -3,11 +3,15 @@
 	<head>
 		<meta charset="UTF-8">
 		<title><?php echo $pagetitle; ?></title>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.amber-pink.min.css" />		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 		<link rel="icon" href="./img/logo_eGoodies.png">
-
+		<?php
+		if(isset($style)){
+			echo $style;
+		}
+		?>
 	</head>
 	<body>
 
@@ -73,7 +77,7 @@
 			<div class="mdl-layout__drawer">
 				<span class="mdl-layout-title">Barre de navigation</span>
 				<nav class="mdl-navigation">
-					<a class="mdl-navigation__link"href="index.php">Home</a>
+					<a class="mdl-navigation__link" href="index.php">Home</a>
 					<?php
 						if(Session::is_admin ()){
 							echo "<a class=\"mdl-navigation__link\" href='index.php?action=adminPanel&controller=utilisateur'>Panel Admin</a>";

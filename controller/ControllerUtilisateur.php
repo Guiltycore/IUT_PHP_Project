@@ -129,12 +129,10 @@
 				$data["nonce"] = Security::generateRandomHex ();
 				$data["solde"]=0;
 				$data["admin"]=0;
-				$from="noreply@php.yvesdaniel.fr";
 				ModelUtilisateur ::save ( $data );
 				mail($data["mail"],
 					"Validate your account",
-					"Here is a link inorder to validate your account http://php.yvesdaniel.fr/index.php?login=".$data["login"]."&nonce=".$data["nonce"]."&controller=utilisateur&action=validate",
-					"From:" . $from);
+					"Here is a link inorder to validate your account http://php.yvesdaniel.fr/index.php?login=".$data["login"]."&nonce=".$data["nonce"]."&controller=utilisateur&action=validate");
 			}
 			ControllerProduit::readAll (1);
 

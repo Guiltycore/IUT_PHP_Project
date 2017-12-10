@@ -11,14 +11,14 @@
 		$v = ModelProduit ::select( $_GET[ ModelProduit ::getPrimary() ] );
 		echo "<fieldset>
 	<legend>Mettre à jour le produit :</legend>
-	<p>
+	
 		<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
             <input class=\"mdl-textfield__input\" placeholder=\"Ex : Patate\" type=\"text\" name=\"nom_p\" id=\"nom_p_id\" value=\"" . $v -> getNom_p() . "\" required>
              <label class=\"mdl-textfield__label\" for=\"nom_p_id\">Nom</label>
         </div>
         
 		<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
-            <textarea class=\"mdl-textfield__input\" placeholder=\"Ex : Ce produit est utile !\" name=\"description_p\" type=\"text\" rows= \"5\" id=\"description_p_id\" required/>" . $v -> getDescription_p() . "</textarea>
+            <textarea class=\"mdl-textfield__input\" placeholder=\"Ex : Ce produit est utile !\" name=\"description_p\"  rows= \"5\" id=\"description_p_id\" required>" . $v -> getDescription_p() . "</textarea>
             <label class=\"mdl-textfield__label\" for=\"description_p_id\">Description</label>
         </div>
 		<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--12-col\">
@@ -29,11 +29,11 @@
         <div class='mdl-cell mdl-cell--12-col'>
 		
 			<label for='pic_p_id'>Image</label>
-			<input type = \"file\" name = \"pic_p\" class = \"pic_p_id\"  >  
+			<input type = \"file\" name = \"pic_p\" id=\"pic_p_id\" class = \"pic_p_id\"  >  
 		</div>  
 
 		<input type='hidden' name='id_p' value='" . $_GET[ ModelProduit ::getPrimary() ] . "'>
-	</p>
+	
 	<p>
 		<input type=\"submit\" value=\"Envoyer\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>
 	</p>
@@ -45,7 +45,7 @@
 		echo "
 <fieldset>
 	<legend>Créer produit :</legend>
-	<p>
+	
 		
 		<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
             <input class=\"mdl-textfield__input\" type=\"text\" name=\"nom_p\" id=\"nom_p_id\" required>
@@ -53,7 +53,7 @@
         </div>
 		
 		<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
-            <textarea class=\"mdl-textfield__input\" name=\"description_p\" type=\"text\" rows= \"5\" id=\"description_p_id\" required/></textarea>
+            <textarea class=\"mdl-textfield__input\" name=\"description_p\"  rows= \"5\" id=\"description_p_id\" required></textarea>
             <label class=\"mdl-textfield__label\" for=\"description_p_id\">Description</label>
         </div>
 		<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
@@ -63,10 +63,10 @@
 		<div class='mdl-cell mdl-cell--12-col'>
 		
 			<label for='pic_p_id'>Image</label>
-			<input type = \"file\" name = \"pic_p\" class = \"pic_p_id\"  >  
+			<input type = \"file\" name = \"pic_p\" id=\"pic_p_id\" class = \"pic_p_id\"  >  
 		</div> 
 		
-	</p>
+	
 	<p>
 		<input type=\"submit\" value=\"Envoyer\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>
 	</p>

@@ -2,28 +2,6 @@
 <?php
 	// Display of the products stored in $tab_p
 
-	echo"<style>
-
-			.demo-card-wide.mdl-card {
-                width: 30vw;
-
-                margin-left: auto;
-                margin-right: auto;
-			}
-     ";
-	foreach ($tab_p as $p){
-		echo "
-			.demo-card-wide > .image".$p -> getID_p ()." {
-                height: 7vh;
-                background: url(\"".$p->getPicP()."\") center / cover;
-                
-	            background-repeat: no-repeat;
-                background-size: 3vw 6vh;
-                }\n";
-	}
-echo "
-
-		</style>";
 
 	echo "<h1>Liste des produits</h1>";
 	echo "<div class=\"mdl-grid c\">";
@@ -42,7 +20,7 @@ echo "
 		echo "<div class=\"mdl-cell mdl-cell--12-col\">";
 		echo"<div class=\"demo-card-wide mdl-card mdl-shadow--2dp\">
                  <div class=\"mdl-card__title image".$p -> getID_p ()."\">
-                    <span class=\"mdl-card__title-text\"><h6>". htmlspecialchars ( $p -> getNom_p () )."</h6></span>
+                    <h6>". htmlspecialchars ( $p -> getNom_p () )."</h6>
                 </div>
                 <div class=\"mdl-card__supporting-text\">
                     Prix:".$p->getPrix_p()."€
@@ -55,14 +33,14 @@ echo "
                     </a>
                 </div>
                 <div class=\"mdl-card__menu\">";
-		echo "<form method=\"get\" action=\"index.php\" id='panier'>";
+		echo "<form method=\"get\" action=\"index.php\" id='panier".$p -> getID_p ()."'>";
 		echo "<input type='hidden' value='produit' name='controller'>";
 		echo "<input type='hidden' value='ap' name='action'>";
 
 		echo "<input type='hidden' value='".$p->getID_p()."' name='id_p'>";
 		echo "</form>
                     
-                    <button type=\"submit\" form=\"panier\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">
+                    <button type=\"submit\" form=\"panier".$p -> getID_p ()."\" class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\">
                         <i class=\"material-icons\">&#xE854;</i>
                     </button>
                 </div>
