@@ -19,6 +19,6 @@ table {
     margin-right:auto;
 }
 
-.mdl-navigation mdl-layout--large-screen-only {
+nav .mdl-navigation mdl-layout--large-screen-only {
     align="right";
 }
