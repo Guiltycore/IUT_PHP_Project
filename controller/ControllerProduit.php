@@ -69,6 +69,7 @@
 
 				if (isset($_FILES['pic_p'])&&move_uploaded_file($_FILES['pic_p']['tmp_name'], './img/'.basename($_FILES['pic_p']['name']))) {
 					$data['pic_p']="./img/".basename($_FILES['pic_p']['name']);
+					print_r($data);
 				}
 				ModelProduit ::update ( $data );
 			}
@@ -79,7 +80,7 @@
 			if(Session::is_admin ()) {
 
 				if ( isset( $_FILES[ 'pic_p' ] ) && move_uploaded_file ( $_FILES[ 'pic_p' ][ 'tmp_name' ] , './img/' . basename ( $_FILES[ 'pic_p' ][ 'name' ] ) ) ) {
-					$data[ 'pic_p' ] = basename ( $_FILES[ 'pic_p' ][ 'name' ] );
+					$data[ 'pic_p' ] = "./img/".basename ( $_FILES[ 'pic_p' ][ 'name' ] );
 				}
 				ModelProduit ::save ( $data );
 			}
