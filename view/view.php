@@ -6,6 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.amber-pink.min.css" />		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+		<link rel="icon" href="./img/logo_eGoodies.png">
+
 	</head>
 	<body>
 

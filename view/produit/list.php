@@ -83,6 +83,19 @@ echo "</div>";
 		echo "<a href='index.php?controller=produit&action=".$act."&p=".($page+1)."' class=\"material-icons\">&#xE5CC;</a><a href='index.php?controller=produit&action=".$act."&p=".$maxPage."' class=\"material-icons\">&#xE5DD;</a>";
 	}
 	echo "</div>";
+	if(Session::is_admin()){
+
+		echo "<form method='get' action='index.php'> 
+
+						<input type = \"hidden\" name = \"s\" value='10'>
+						<input type = \"hidden\" name = \"action\" value='generate'>
+  						<input type = \"hidden\" name = \"controller\" value='produit'>
+  						<p>
+						<input type=\"submit\" value=\"Générer 10 produits\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>
+						</p>
+					
+</form> ";
+	}
 ?>
 
 

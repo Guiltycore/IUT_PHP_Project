@@ -124,6 +124,9 @@
 							$controller_class::adminPanel(1);
 						}
 						break;
+					case "generate":
+						$controller_class::generate($_GET["s"]);
+						break;
 					default:
 						$controller_class ::err ();
 						break;
