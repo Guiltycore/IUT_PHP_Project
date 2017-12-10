@@ -57,7 +57,9 @@
 				$pagetitle = 'Produit update';
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
 			}
-
+			else{
+				self::readAll (1);
+			}
 
 		}
 		public static function updated ( $data )
