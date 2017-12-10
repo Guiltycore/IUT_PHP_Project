@@ -116,6 +116,7 @@
 			if((Session::is_admin ()||Session::is_user ($data["login"]))&&strcmp ( $data[ "mdp" ] , $data[ "mdp_conf" ] ) == 0){
 				unset($data[ "mdp_conf" ]);
 				$data[ "mdp" ] = Security ::chiffrer ( $data[ "mdp" ] );
+				print_r($data);
 				ModelUtilisateur ::update ( $data );
 			}
 			self::read ($data["login"],1);

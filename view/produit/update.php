@@ -73,5 +73,16 @@
 </fieldset>
 </form>
 ";
+		if(Session::is_admin()){
+
+			echo "<p><form method='get' action='index.php'> 
+						
+						<input type = \"hidden\" name = \"s\" value='10'>
+						<input type = \"hidden\" name = \"action\" value='generate'>
+  						<input type = \"hidden\" name = \"controller\" value='produit'>
+
+
+</form> ";
+		}
 	}
 ?>

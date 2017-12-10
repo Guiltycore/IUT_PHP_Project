@@ -84,6 +84,5 @@ echo "</div>";
 	}
 	echo "</div>";
 ?>
-<a href="index.php?controller=produit&action=update">Créer produit</a>-<a href="index.php?controller=produit&action=generate&s=10">Generate 10 products</a>
 
 
