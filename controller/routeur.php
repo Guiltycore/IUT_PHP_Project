@@ -116,7 +116,7 @@
 							$controller_class::search($_GET["search"],1);
 						}
 						break;
-					case "panelAdmin":
+					case "adminPanel":
 						if(isset($_GET["p"])){
 							$controller_class::panelAdmin($_GET["p"]);
 
