@@ -80,7 +80,7 @@
 						<input type = \"hidden\" name = \"s\" value='10'>
 						<input type = \"hidden\" name = \"action\" value='generate'>
   						<input type = \"hidden\" name = \"controller\" value='produit'>
-
+						<input type=\"submit\" value=\"Générer 10 produits\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\"/>
 
 </form> ";
 		}
