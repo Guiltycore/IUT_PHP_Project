@@ -5,7 +5,7 @@
 	 * Date: 04/12/2017
 	 * Time: 21:41
 	 */
-	if(isset($_SESSION["login"])){
+	if(isset($_SESSION["login"])&&isset($_SESSION["action"])&&$_SESSION["action"]="detail"){
 		if(isset($_GET["p"])){
 
 			echo "
