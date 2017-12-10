@@ -118,10 +118,10 @@
 						break;
 					case "adminPanel":
 						if(isset($_GET["p"])){
-							$controller_class::panelAdmin($_GET["p"]);
+							$controller_class::adminPanel($_GET["p"]);
 
 						}else{
-							$controller_class::panelAdmin(1);
+							$controller_class::adminPanel(1);
 						}
 						break;
 					default:
