@@ -3,19 +3,19 @@
 		echo "<form method=\"post\" action=\"index.php?action=updated&controller=utilisateur\" enctype=\"multipart/form-data\">";
 
 		echo "<fieldset>
-	<legend>Mon formulaire :</legend>
+	<legend>Modification de compte:</legend>
 	
 	
 		<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 			<input class=\"mdl-textfield__input\" type=\"text\" placeholder=\"Ex : Kerrigan\" name=\"nom\" id=\"nom_id\" value=\"" . $u -> getNom () . "\" required/>
-			<label class=\"mdl-textfield__label\" for=\"nom_id\">Nom :</label> 
+			<label class=\"mdl-textfield__label\" for=\"nom_id\">Nom</label> 
         </div>
         
 		
 		
 		<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 			<input class=\"mdl-textfield__input\" type=\"text\" placeholder=\"Ex : Sarah\" name=\"prenom\" id=\"prenom_id\" value=\"" . $u -> getPrenom () . "\" required/>
-			<label class=\"mdl-textfield__label\" for=\"prenom_id\">Prenom :</label>
+			<label class=\"mdl-textfield__label\" for=\"prenom_id\">Prenom</label>
         </div>
         
 		
@@ -29,7 +29,7 @@
 		
 		<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 		<input class=\"mdl-textfield__input\" type=\"password\" placeholder=\"Ex : MyLifeForAïur\" name=\"mdp_conf\" id=\"mdp_conf_id\" required/>
-			<label class=\"mdl-textfield__label\" for=\"mdp_conf_id\">Confirmer mot de passe :</label>
+			<label class=\"mdl-textfield__label\" for=\"mdp_conf_id\">Confirmer mot de passe</label>
         </div>
         
 		
@@ -37,7 +37,7 @@
 		<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 
 		<input class=\"mdl-textfield__input\" type=\"text\" placeholder=\"Ex : 3 rue Shakura\" name=\"adresse\" id=\"adr_id\" value=\"" . $u -> getAdresse () . "\" required/>		
-			<label class=\"mdl-textfield__label\" for=\"adr_id\">Adresse :</label>
+			<label class=\"mdl-textfield__label\" for=\"adr_id\">Adresse</label>
         </div>
         
 		
@@ -57,22 +57,22 @@
 	
 		<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 
-		<label class=\"mdl-textfield__label\" for=\"login_idcr\">Login</label> :
+		<label class=\"mdl-textfield__label\" for=\"login_idcr\">Login</label>
 		<input class=\"mdl-textfield__input\" type=\"text\" placeholder=\"Ex : Zeratul\" name=\"login\" id=\"login_idcr\" required/>
 		</div>
 				<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 
-		<label class=\"mdl-textfield__label\" for=\"nom_id\">Nom</label> :
+		<label class=\"mdl-textfield__label\" for=\"nom_id\">Nom</label>
 		<input class=\"mdl-textfield__input\" type=\"text\" placeholder=\"Ex : Raynor\" name=\"nom\" id=\"nom_id\" required/>
 		</div>
 				<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 
-		<label class=\"mdl-textfield__label\" for=\"prenom_id\">Prenom</label> :
+		<label class=\"mdl-textfield__label\" for=\"prenom_id\">Prenom</label>
 		<input class=\"mdl-textfield__input\" type=\"text\" placeholder=\"Ex : Jim\" name=\"prenom\" id=\"prenom_id\" required/>
 		</div>
 				<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 
-		<label class=\"mdl-textfield__label\" for=\"mdp_idcr\">Mot de passe</label> :
+		<label class=\"mdl-textfield__label\" for=\"mdp_idcr\">Mot de passe</label>
 		<input class=\"mdl-textfield__input\" type=\"password\" placeholder=\"Ex : EnTaroTassadar\" name=\"mdp\" id=\"mdp_idcr\" required/>
 		</div>
 				<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
@@ -82,7 +82,7 @@
 		</div>
 				<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">
 
-		<label class=\"mdl-textfield__label\" for=\"adr_id\">Adresse</label> :
+		<label class=\"mdl-textfield__label\" for=\"adr_id\">Adresse</label>
 		<input class=\"mdl-textfield__input\" type=\"text\" placeholder=\"Ex :3 rue Adun\" name=\"adresse\" id=\"adr_id\" required/>
 		</div>
 				<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col\">

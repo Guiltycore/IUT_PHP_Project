@@ -20,7 +20,7 @@
 				<div class="mdl-layout__header-row">
 					<!-- Title -->
 					<span class="mdl-layout-title"><a href="./index.php">
-					<img  alt="logo" src="http://php.yvesdaniel.fr/img/logo_eGoodies.png" width="100" height="100"></a></span>
+					<img  alt="logo" src="./img/logo_eGoodies.png" width="100" height="100"></a></span>
 					<!-- Add spacer, to align navigation to the right -->
 					<div class="mdl-layout-spacer"></div>
 					<!-- Navigation. We hide it in small screens. -->
@@ -98,8 +98,8 @@
 				<div class="page-content"><!-- Your content goes here -->
 
 					<?php
-						if(isset($message)){
-							echo "<p>".$message."</p>";
+						if(isset($_POST["message"])){
+							echo "<p>".$_POST["message"]."</p>";
 						}
 						$filepath = File ::build_path ( [ "view" , $object , "$view.php" ] );
 						require $filepath;

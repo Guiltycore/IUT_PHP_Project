@@ -28,25 +28,32 @@
 				$pagetitle = 'Liste des commandes';
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
 			}else{
+				$_POST["message"]="Connectez vous d'abord!";
 				ControllerUtilisateur::connect ();
 			}
 		}
 		public static function read ( $login ,$p)
 		{
-			$l=$login;
-			//TODO
-			$tab = ModelProduitCommande::getProductListBO($login);
-			$listM=10;
-			$page=$p>0?$p:1;
-			$maxPage=ceil(count ($tab)/self::$listMax);
-			$tab_p= array ();
-			for($i=$listM*($p-1);$i<$listM*$p&&$i<count ($tab);++$i){
-				$tab_p[serialize (ModelProduit::select($tab[$i]->getIdP()))]=$tab[$i]->getQuantity();
+
+			if(Session::is_user(ModelCommande::select($login)->getLogin())||Session::is_admin()){
+				$l=$login;
+				$tab = ModelProduitCommande::getProductListBO($login);
+				$listM=10;
+				$page=$p>0?$p:1;
+				$maxPage=ceil(count ($tab)/self::$listMax);
+				$tab_p= array ();
+				for($i=$listM*($p-1);$i<$listM*$p&&$i<count ($tab);++$i){
+					$tab_p[serialize (ModelProduit::select($tab[$i]->getIdP()))]=$tab[$i]->getQuantity();
+				}
+				$object = 'commande';
+				$view = 'detail';
+				$pagetitle = 'Détail de la commande';
+				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );  //"redirige" vers la vue
 			}
-			$object = 'commande';
-			$view = 'detail';
-			$pagetitle = 'Détail du produit.';
-			require ( File ::build_path ( [ 'view' , 'view.php' ] ) );  //"redirige" vers la vue
+			else{
+				$_POST["message"]="Vous n'avez pas les droits pour accéder à ce produit :)!";
+				ControllerProduit::readAll(1);
+			}
 		}
 		public static function delete ( $login )
 		{
@@ -99,6 +106,8 @@
 					ControllerProduit::readAll(1);
 
 			}else{
+				$_POST["message"]="Vous devez être connecté pour pouvoir commander.";
+
 				ControllerUtilisateur::connect ();
 			}
 

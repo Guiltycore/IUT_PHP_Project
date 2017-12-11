@@ -30,6 +30,9 @@
 				$view = 'list';
 				$pagetitle = 'Liste des utilisateurs';
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );  //"redirige" vers la vue
+			}else{
+				$_POST["message"]="Vous n'êtes pas administrateur !";
+				ControllerProduit::readAll(1);
 			}
 
 		}
@@ -71,6 +74,8 @@
 				$pagetitle = 'Détail du utilisateur.';
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );  //"redirige" vers la vue
 			}else{
+				$_POST["message"]="Connectez vous avant !";
+
 				ControllerUtilisateur::connect ();
 			}
 		}
@@ -84,9 +89,13 @@
 					session_destroy ();
 					setcookie ( session_name () , '' , time () - 1 );
 				}
+				$_POST["message"]="Utilisateur supprimé !";
+
 				ControllerProduit::readAll (1);
 
 			}else{
+				$_POST["message"]="Vous n'avez pas les droits pour supprimer cet utilisateur!";
+
 				ControllerProduit::readAll (1);
 
 			}
@@ -101,6 +110,8 @@
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
 
 			}else if(!Session::is_user ($imma)&&!Session::is_admin ()){
+				$_POST["message"]="Vous n'avez pas les droits pour mettre à jour cet utilisateur!";
+
 				ControllerProduit::readAll (1);
 			}
 			else{
@@ -116,8 +127,16 @@
 			if((Session::is_admin ()||Session::is_user ($data["login"]))&&strcmp ( $data[ "mdp" ] , $data[ "mdp_conf" ] ) == 0){
 				unset($data[ "mdp_conf" ]);
 				$data[ "mdp" ] = Security ::chiffrer ( $data[ "mdp" ] );
-				print_r($data);
 				ModelUtilisateur ::update ( $data );
+				$_POST["message"]="Utilisateur mis à jour  !";
+
+			}else{
+				if(strcmp ( $data[ "mdp" ] , $data[ "mdp_conf" ] )){
+					$_POST["message"]="Mauvaise combinaison de mot de passe!";
+				}
+				else{
+					$_POST["message"]="Vous n'avez pas les droits pour mettre à jour cet utilisateur! ";
+				}
 			}
 			self::read ($data["login"],1);
 		}
@@ -132,7 +151,12 @@
 				ModelUtilisateur ::save ( $data );
 				mail($data["mail"],
 					"Validate your account",
-					"Here is a link inorder to validate your account http://php.yvesdaniel.fr/index.php?login=".$data["login"]."&nonce=".$data["nonce"]."&controller=utilisateur&action=validate");
+					"Here is a link inorder to validate your account http://webinfo.iutmontp.univ-montp2.fr/~durinin/eCommerce/index.php?login=".$data["login"]."&nonce=".$data["nonce"]."&controller=utilisateur&action=validate");
+				$_POST["message"]="Compte crée!";
+
+			}else{
+				$_POST["message"]="Erreur: Les mots de pass ne correspondent pas, ou le mail est invalide.";
+
 			}
 			ControllerProduit::readAll (1);
 
@@ -146,6 +170,8 @@
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
 			}
 			else {
+				$_POST["message"]="Salopio ! Tu es déjà connecté";
+
 				ControllerProduit ::readAll (1);
 			}
 		}
@@ -156,10 +182,12 @@
 				if ( ModelUtilisateur ::checkPassword ( $login , $mdp )&&is_null ($g->getNonce())) {
 					$_SESSION[ "login" ] = $g -> getLogin ();
 					$_SESSION[ "admin" ] = $g -> getAdmin ();
+					$_POST["message"]="Bienvenue ".$g->getLogin()." !";
+
 					ControllerProduit ::readAll (1);
 				}
 				else {
-					$message= "Mauvais mot de passe.";
+					$_POST["message"]="Mauvais mot de passe !";
 					$object = 'utilisateur';
 					$view = 'connect';
 					$pagetitle = 'Connection à la page utilisateur';
@@ -167,6 +195,8 @@
 				}
 			}
 			else {
+				$_POST["message"]="Vous êtes déjà connecté ! ";
+
 				ControllerProduit ::readAll (1);
 			}
 		}
@@ -176,6 +206,10 @@
 				session_unset ();
 				session_destroy ();
 				setcookie ( session_name () , '' , time () - 1 );
+			}
+			else{
+				$_POST["message"]="Tu es déjà connecté...!";
+
 			}
 			ControllerProduit ::readAll (1);
 		}
@@ -188,9 +222,12 @@
 				];
 				ModelUtilisateur::update ($data);
 				ControllerProduit::readAll (1);
+				$_POST["message"]="Bravo ! Vous êtes validé !";
+
 			}
 			else{
-				$message= "Wrong login/nonce";
+				$_POST["message"]="Validation impossible";
+
 				ControllerProduit::readAll (1);
 			}
 		}
@@ -212,6 +249,8 @@
 					require ( File ::build_path ( [ 'view' , 'view.php' ] ) );  //"redirige" vers la vue
 				}
 			}else{
+				$_POST["message"]="Hors de mon domaine , roturier!";
+
 				ControllerProduit::readAll (1);
 			}
 		}

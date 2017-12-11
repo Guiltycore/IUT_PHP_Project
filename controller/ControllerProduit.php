@@ -19,6 +19,7 @@
 			$tab = ModelProduit ::selectAll ();     //appel au modèle pour gerer la BD
 
 			$page=$p>0?$p:1;
+
 			$act="readAll";
 			$maxPage=ceil(count ($tab)/self::$listMax);
 			$tab_p= array ();
@@ -70,6 +71,11 @@
 				$pagetitle = 'Produit supprimé';
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
 			}
+			else{
+				$_POST["message"]="Vous n'avez pas les droits pour supprimer ce produit =)!";
+
+				self::readAll(1);
+			}
 		}
 		public static function update ( $imma )
 		{
@@ -81,6 +87,8 @@
 				require ( File ::build_path ( [ 'view' , 'view.php' ] ) );
 			}
 			else{
+				$_POST["message"]="Vous n'avez pas les droits pour mettre à jour ce produit =)!";
+
 				self::readAll (1);
 			}
 
@@ -91,10 +99,11 @@
 
 				if (isset($_FILES['pic_p'])&&move_uploaded_file($_FILES['pic_p']['tmp_name'], './img/'.basename($_FILES['pic_p']['name']))) {
 					$data['pic_p']="./img/".basename($_FILES['pic_p']['name']);
-					print_r($data);
 				}
 				ModelProduit ::update ( $data );
 			}
+			$_POST["message"]="Produit mis à jour!";
+
 			self::readAll (1);
 		}
 		public static function created ( $data )
@@ -106,6 +115,8 @@
 				}
 				ModelProduit ::save ( $data );
 			}
+			$_POST["message"]="Produit crée !";
+
 			self::readAll (1);
 
 		}
@@ -115,6 +126,7 @@
 					ModelProduit ::save (["nom_p"=>self::generateRandomString (30),"description_p"=>' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque scelerisque neque lacus, pellentesque aliquet eros fringilla quis. Aliquam id massa ligula. Sed ultricies nisl sed ultrices vulputate. Sed sodales vel tortor non ultrices. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce pretium vitae dolor malesuada mattis. Fusce non blandit diam, non imperdiet nunc. ',"prix_p"=>rand (0,100)]);
 				}
 			}
+			$_POST["message"]="PRODUCTU GENERATU !";
 			self::readAll (1);
 
 		}
@@ -138,6 +150,7 @@
 				$tab["".$idp]=$var + 1;
 				setcookie("panier", serialize($tab), time()+3600);
 			}
+			$_POST["message"]="Produit ajouté!";
 			self::readAll (1);
 		}
 		public static function search($nomproduit,$p){
