@@ -22,7 +22,7 @@
             <label class=\"mdl-textfield__label\" for=\"description_p_id\">Description</label>
         </div>
 		<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--12-col\">
-            <input class=\"mdl-textfield__input\" placeholder=\"35\"value=\"" . $v -> getPrix_p() . "\" name=\"prix_p\" type=\"text\" pattern=\"-?[0-9]*(\.[0-9]+)?\" id=\"prix_p_id\" required>
+            <input class=\"mdl-textfield__input\" placeholder=\"35\" value=\"" . $v -> getPrix_p() . "\" name=\"prix_p\" type=\"text\" pattern=\"-?[0-9]*(\.[0-9]+)?\" id=\"prix_p_id\" required>
             <label class=\"mdl-textfield__label\" for=\"prix_p_id\">Prix</label>
             <span class=\"mdl-textfield__error\">Ceci n'est pas un nombre !</span>
         </div>

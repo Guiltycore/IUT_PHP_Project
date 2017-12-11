@@ -20,9 +20,10 @@
 		echo "<div class=\"mdl-cell mdl-cell--12-col\">";
 		echo"<div class=\"demo-card-wide mdl-card mdl-shadow--2dp\">
                  <div class=\"mdl-card__title image".$p -> getID_p ()."\">
-                    <h6>". htmlspecialchars ( $p -> getNom_p () )."</h6>
+                    <h6></h6>
                 </div>
                 <div class=\"mdl-card__supporting-text\">
+                	".$p->getNom_p()."<br>
                     Prix:".$p->getPrix_p()."€
 				</div>
                 <div class=\"mdl-card__actions mdl-card--border\">
