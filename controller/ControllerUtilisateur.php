@@ -151,7 +151,7 @@
 				ModelUtilisateur ::save ( $data );
 				mail($data["mail"],
 					"Validate your account",
-					"Here is a link inorder to validate your account http://webinfo.iutmontp.univ-montp2.fr/~durinin/eCommerce/index.php?login=".$data["login"]."&nonce=".$data["nonce"]."&controller=utilisateur&action=validate");
+					"Here is a link inorder to validate your account http://php.yvesdaniel.fr/index.php?login=".$data["login"]."&nonce=".$data["nonce"]."&controller=utilisateur&action=validate");
 				$_POST["message"]="Compte crée!";
 
 			}else{
